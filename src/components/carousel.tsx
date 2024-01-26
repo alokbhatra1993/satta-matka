@@ -16,7 +16,7 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto mt-8">
+    <div className="parent-slider max-w-screen-lg mx-auto">
       <Slider {...settings}>
         <div>
           <img

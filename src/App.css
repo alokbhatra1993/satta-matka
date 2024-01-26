@@ -7,6 +7,10 @@ body {
   height: 100vh;
 }
 
+.parent-slider.max-w-screen-lg.mx-auto img {
+  height: 50vh;
+}
+
 .sidebar-left {
   display: flex;
   flex-direction: column;
@@ -15,6 +19,14 @@ body {
   line-height: 42px;
   /* background: #fff; */
   /* color: #000 !important; */
+}
+.buttons-new.flex.justify-center.mt-4 .mx-2 {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 500;
 }
 
 .justify-between {

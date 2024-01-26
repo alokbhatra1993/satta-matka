@@ -11,7 +11,9 @@ const Navbar: React.FC = () => {
   return (
     <div className="bg-gray-800 p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="text-white text-sm font-medium">Your Logo</div>
+        <div className="text-white text-sm font-medium">
+        <i className="fa-solid fa-wallet"></i>
+        </div>
 
         <div className="text-white text-sm font-medium"> Welcome to Kalyan Satta Matka </div>
 
