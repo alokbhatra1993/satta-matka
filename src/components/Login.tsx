@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface FormData {
-  email: string;
+  mobile : string;
   password: string;
 }
 
@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   //hooks
    const [count , setCount]= useState(0)
   const [formData, setFormData] = useState({
-    email: '',
+    mobile: '',
     password: '',
   });
 console.log("formData",formData)
@@ -54,27 +54,28 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
   };
   return (
-    <div className="container mx-auto mt-8 p-4 bg-gray-100 max-w-md rounded shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Login Form</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="container mx-auto mt-8 p-4 bg-white max-w-md rounded-md shadow-md">
+       {/* <img src={logo} alt="Logo" className="h-16 w-16" /> */}
+      <h2 className="text-2xl font-medium mb-4">Login Form</h2>
+      <form className='text-left' onSubmit={handleSubmit}>
     
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-semibold mb-1">
-            Email:
+          <label htmlFor="email" className="block text-sm font-medium mb-1">
+            Mobile :
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={formData.mobile}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-semibold mb-1">
-            Password:
+          <label htmlFor="password" className="block text-sm font-medium mb-1">
+            Password :
           </label>
           <input
             type="password"
@@ -88,7 +89,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" onClick={handleSubmit}
+          className="w-full bg-blue-800 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" onClick={handleSubmit}
         >
           Login
         </button>
