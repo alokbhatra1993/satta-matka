@@ -7,16 +7,25 @@ import SignUpForm from "./components/SignUp";
 import Login from "./components/Login";
 import Carousel from "./components/carousel";
 import Home from "./components/Home";
+import WithoutNavbar from "./components/WithoutNavbar";
+import WithNavbar from "./components/WithNavbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
-        <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/login" element={<Login />} />
+        <Route element={<WithoutNavbar />}>
+            <Route path="/login" element={<Login />} />
+          </Route>
+          <Route element={<WithoutNavbar />}>
+            <Route path="/signup" element={<SignUpForm />} />
+          </Route>
+
+          <Route element={<WithNavbar />}>
+            <Route path="/" element={<Home />} />
+          </Route>
         </Routes>
       </Router>
     </div>
