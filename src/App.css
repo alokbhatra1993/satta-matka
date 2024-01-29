@@ -7,10 +7,48 @@ body {
   margin: 0 auto;
   height: 100vh;
   font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+}
+.navbar-main.p-4 {
+  background: #101A4F;
+}
+.MuiPaper-root {
+  left: 32% !important;
+  width: 30%;
+  background-color:#101A4F !important;
+  color: #fff !important;
+}
+.satta-matka-home {
+  background: #101A4F;
+}
+
+:root {
+  --custom-blue: #101A4F;
+  background-color: #000;
+}
+.container.primary-text button {
+  text-align: -webkit-center;
+}
+.main-wrap button {
+  text-align: -webkit-center;
 }
 
 .parent-slider.max-w-screen-lg.mx-auto img {
   height: 50vh;
+  object-fit: cover;
+}
+a.btn-card-closed {
+  padding: 10px 30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  background-image: linear-gradient(to right top, #f75306, #e75305, #d85305, #c95206, #bb5108);
+}
+.MuiPaper-root {
+  left: 32.5%;
+  width: 31%;
 }
 
 .sidebar-left {
@@ -63,7 +101,7 @@ body {
 .card-bg .mt-2.text-black {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #61990b;
+  border-top: 2px solid #61990b;
   padding: 10px;
   background: #f8f8f8;
   align-items: center;
@@ -78,11 +116,12 @@ body {
 .parent-slider .slick-dots {
   position: revert;
 }
-.card-new.p-5 {
+.card-new.p-2 {
   border: 1px solid #ddd;
   box-shadow: 0 0 2px #666;
   border-radius: 15px;
   margin: 10px;
+  background: #fff;
 }
 .card-new.p-8 {
   border-bottom: 5px solid #fff;
@@ -90,10 +129,18 @@ body {
 }
 .main-wrap {
   display: flex;
-  margin: 20px 20px 20px 20px;
+  margin: 20px 0px;
 }
 .main-wrap button {
-  margin-left: 5px;
+  margin-left: 10px;
+}
+.container.primary-text {
+  background: #101A4F;
+  padding: 15px;
+  margin: 0px 0 20px 0;
+}
+.login-primary {
+  background: #101A4F;
 }
 .flex.flex-col.w-64.bg-gray-800.h-screen {
   position: absolute;
@@ -102,15 +149,27 @@ body {
   height: auto;
 }
 a.btn-card {
-  background-image: linear-gradient(to right top, #06234f, #022a62, #003076, #00378a, #063d9e);
   padding: 10px 30px;
   color: #fff;
   text-align: center;
   border-radius: 10px;
-  /* display: flex;
-  flex-direction: column; */
   margin: 10px 0;
   display: inline-block;
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 

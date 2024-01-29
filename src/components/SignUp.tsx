@@ -65,13 +65,13 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   }
   return (
-    <div className="container mx-auto mt-8 p-4 bg-white max-w-md rounded shadow-md text-left">
+    <div className="container mx-auto mt-8 p-4 max-w-md rounded shadow-md text-left login-primary text-white">
         <img src={logo} alt="Logo" className="flex mx-auto" />
-      <h2 className="text-2xl font-medium mb-4">SignUp Form</h2>
+      <h2 className="text-2xl font-bold mt-4 mb-4">Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium mb-1">
-            Name :
+            Enter your Name 
           </label>
           <input
             type="text"
@@ -80,13 +80,13 @@ const handleSubmit = async (e: React.FormEvent) => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
 
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium mb-1">
-            Mobile No :
+             Mobile No 
           </label>
           <input
             type="text"
@@ -95,12 +95,12 @@ const handleSubmit = async (e: React.FormEvent) => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium mb-1">
-            Password :
+            Password 
           </label>
           <input
             type="email"
@@ -109,12 +109,12 @@ const handleSubmit = async (e: React.FormEvent) => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="block text-sm font-medium mb-1">
-            Pin :
+            Enter your Pin 
           </label>
           <input
             type="password"
@@ -123,21 +123,21 @@ const handleSubmit = async (e: React.FormEvent) => {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" onClick={handleSubmit}
+          className="w-full bg-blue-500 mb-5 text-white py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" onClick={handleSubmit}
         >
           Sign Up
         </button>
 
-        <a href="#" className="mt-8 mb-8 text-green-700">Already have an Account?</a>
+        <a href="#" className="mt-8 mb-2 text-white">Already have an Account?</a>
 
 <button
   type="submit"
-  className="w-full bg-blue-800 text-white mt-5 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+  className="w-full bg-yellow-500 text-white mt-3 py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
   onClick={gotoLoginPage}
 >
   Login

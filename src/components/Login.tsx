@@ -68,13 +68,13 @@ const Login: React.FC = () => {
 
   }
   return (
-    <div className="container mx-auto mt-8 p-4 bg-white max-w-md rounded-md shadow-md">
+    <div className="container mx-auto p-4 max-w-md rounded-5 shadow-md login-primary text-white">
       <img src={logo} alt="Logo" className="flex mx-auto" />
-      <h2 className="text-2xl font-medium mb-4">Login Form</h2>
+      <h2 className="text-2xl font-bold mb-2 mt-4">Welcome Back!</h2>
       <form className="text-left" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium mb-1">
-            Mobile :
+            Mobile Number
           </label>
           <input
             type="email"
@@ -83,12 +83,12 @@ const Login: React.FC = () => {
             value={formData.mobile}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4 relative">
           <label htmlFor="password" className="block text-sm font-medium mb-1">
-            Password :
+            Password
           </label>
           <input
             type={showPassword ? "text" : "password"}
@@ -97,28 +97,29 @@ const Login: React.FC = () => {
             value={formData.password}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500 text-black"
           />
-          <button className="hideshow absolute top-9 right-2" type="button" onClick={handleTogglePassword}>
+          <button className="hideshow absolute top-9 right-2 text-black" type="button" onClick={handleTogglePassword}>
             {showPassword ? <FaEye className="mr-2" /> : <FaEyeSlash />}
           </button>
         </div>
+        <a href="#" className="mt-4 mb-2 text-white-700 flex justify-end text-sm">Forgot Password.</a>
         <button
           type="submit"
-          className="w-full bg-blue-800 text-white py-2 mb-6 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+          className="w-full mt-4 bg-blue-800 text-white py-2 mb-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
           onClick={handleSubmit}
         >
           Login
         </button>
 
-        <a href="#" className="mt-4 mb-8 text-green-700">Forgot Password.</a>
+        <a href="#" className="mt-1 mb-2 text-white-700 flex justify-center text-sm">Don't have an account?</a>
 
         <button
           type="submit"
-          className="w-full bg-blue-800 text-white mt-5 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+          className="w-full bg-yellow-500 text-white mt-2 py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
           onClick={goToSignUpPage}
         >
-          SignUp
+          Register
         </button>
       </form>
     </div>
