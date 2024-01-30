@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaBars, FaWallet } from "react-icons/fa";
+import { FaBars, FaChartBar, FaHistory, FaHome, FaLock, FaMoneyBill, FaMoneyCheck, FaPhone, FaQuestionCircle, FaShareAlt, FaStar, FaTrophy, FaUser, FaWallet } from "react-icons/fa";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -16,20 +16,22 @@ const Navbar: React.FC = () => {
   };
 
   const items = [
-    { text: "Home" },
-    { text: "See Full Profile" },
-    { text: "Add Funds" },
-    { text: "Withdraw" },
-    { text: "Wallet Statement" },
-    { text: "Win History" },
-    { text: "Bid History" },
-    { text: "Game Rates" },
-    { text: "How to Play" },
-    { text: "Contact Us" },
-    { text: "Share with Friends" },
-    { text: "Rate App" },
-    { text: "Change Password" },
+    { text: "test", icon: <FaHome /> },
+    { text: "Home", icon: <FaHome /> },
+    { text: "See Full Profile", icon: <FaUser /> },
+    { text: "Add Funds", icon: <FaMoneyBill /> },
+    { text: "Withdraw", icon: <FaMoneyCheck /> },
+    { text: "Wallet Statement", icon: <FaWallet /> },
+    { text: "Win History", icon: <FaTrophy /> },
+    { text: "Bid History", icon: <FaHistory /> },
+    { text: "Game Rates", icon: <FaChartBar /> },
+    { text: "How to Play", icon: <FaQuestionCircle /> },
+    { text: "Contact Us", icon: <FaPhone /> },
+    { text: "Share with Friends", icon: <FaShareAlt /> },
+    { text: "Rate App", icon: <FaStar /> },
+    { text: "Change Password", icon: <FaLock /> },
   ];
+  
 
   const handleItemClick = (item: string) => {
     // console.log(`Clicked on ${item}`);
@@ -50,7 +52,7 @@ const Navbar: React.FC = () => {
         <div className="marquee font-bold">Welcome to Kalyan Satta Matka</div>
         </div>
 
-        <div onClick={toggleSidebar} className="hidden lg:flex items-center">
+        <div onClick={toggleSidebar} className="lg:flex items-center">
           <span className="text-white pr-2">
             <FaBars />
           </span>

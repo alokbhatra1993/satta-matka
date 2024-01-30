@@ -19,62 +19,63 @@ const Home: React.FC = () => {
 
       <div className="container primary-text">
 
-        <div className="row gx-3">
-          {/* WhatsApp Button */}
-          <div className="col-md-3">
-            <button className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-2 rounded h-100">
-              <FaWhatsapp className="mr-2" />
-              WhatsApp
-            </button>
-          </div>
-
-          {/* Add Money Button */}
-          <div className="col-md-3">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded h-100">
-              <FaMoneyBillWave className="mr-2" />
-              Add Money
-            </button>
-          </div>
-
-          {/* How to Play Button */}
-          <div className="col-md-3">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded h-100">
-              <FaPlay className="mr-2" />
-              How to Play
-            </button>
-          </div>
-
-          {/* Phone Button */}
-          <div className="col-md-3">
-            <button className="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-2 rounded h-100">
-              <FaPhone className="mr-2" />
-              9001729883
-            </button>
-          </div>
+      <div className="flex flex-wrap -mx-2 justify-center">
+        {/* WhatsApp Button */}
+        <div className="sm:w-1/2 md:w-1/4 px-2 mb-4">
+          <button className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-2 md:px-4 rounded h-100">
+            <FaWhatsapp className="mr-2" />
+            WhatsApp
+          </button>
         </div>
 
-        <div className="main-wrap">
-        {/* Play Star Line Button */}
-        <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded-5">
-          <FaPlayCircle className="mr-2" />
-          Play Star Line
-        </button>
+        {/* Add Money Button */}
+        <div className="sm:w-1/2 md:w-1/4 px-2 mb-4">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 md:px-4 rounded h-100">
+            <FaMoneyBillWave className="mr-2" />
+            Add Money
+          </button>
+        </div>
 
-        {/* Website Button */}
-        <button className="bg-white hover:bg-indigo-600 text-black font-medium py-2 px-4 rounded-5">
-          <FaGlobe className="mr-2" />
-          Website
-        </button>
+        {/* How to Play Button */}
+        <div className="sm:w-1/2 md:w-1/4 px-2 mb-4">
+          <button className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 md:px-4 rounded h-100">
+            <FaPlay className="mr-2" />
+            How to Play
+          </button>
+        </div>
 
-        {/* Gali Desawar Button */}
-        <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded-5">
-          <FaStreetView className="mr-2" />
-          Gali Desawar
-        </button>
+        {/* Phone Button */}
+        <div className="sm:w-1/2 md:w-1/4 px-2 mb-4">
+          <button className="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-2 md:px-4 rounded h-100">
+            <FaPhone className="mr-2" />
+            9001729883
+          </button>
+        </div>
       </div>
 
-      </div>
-     
+      <div className="main-wrap mt-2 flex flex-col md:flex-row md:space-x-4">
+
+{/* Play Star Line Button */}
+<button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 md:py-2 md:px-4 rounded-5 mb-2 md:mb-0">
+  <FaPlayCircle className="mr-2" />
+  Play Star Line
+</button>
+
+{/* Website Button */}
+<button className="bg-white hover:bg-indigo-600 text-black font-medium py-2 px-4 md:py-2 md:px-4 rounded-5 mb-2 md:mb-0">
+  <FaGlobe className="mr-2" />
+  Website
+</button>
+
+{/* Gali Desawar Button */}
+<button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 md:py-2 md:px-4 rounded-5 mb-2 md:mb-0">
+  <FaStreetView className="mr-2" />
+  Gali Desawar
+</button>
+
+</div>
+
+    </div>
 
       <div className="max-w-md mx-auto rounded-xl overflow-hidden satta-matka-home">
         <div className="satta-matka">

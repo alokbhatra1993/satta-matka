@@ -20,6 +20,8 @@ body {
 }
 .satta-matka-home {
   background: #101A4F;
+  overflow: scroll !important;
+  height: 50vh;
 }
 
 :root {
@@ -46,10 +48,10 @@ a.btn-card-closed {
   display: inline-block;
   background-image: linear-gradient(to right top, #f75306, #e75305, #d85305, #c95206, #bb5108);
 }
-.MuiPaper-root {
+/* .MuiPaper-root {
   left: 32.5%;
   width: 31%;
-}
+} */
 
 .sidebar-left {
   display: flex;
@@ -101,7 +103,7 @@ a.btn-card-closed {
 .card-bg .mt-2.text-black {
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid #61990b;
+  border-top: 2px solid #325202;
   padding: 10px;
   background: #f8f8f8;
   align-items: center;
@@ -162,6 +164,13 @@ a.btn-card {
   overflow: hidden;
   animation: marquee 10s linear infinite;
 }
+button.slick-arrow.slick-next {
+  display: none !important;
+}
+
+button.slick-arrow.slick-prev {
+  display: none !important;
+}
 
 @keyframes marquee {
   0% {
@@ -215,4 +224,11 @@ p.mt-2.text-white.space-between {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+@media (min-width:480px)  {
+  .MuiPaper-root.MuiPaper-elevation {
+    width: 50% !important;
+}
 }
