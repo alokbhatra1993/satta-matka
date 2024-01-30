@@ -12,12 +12,12 @@ body {
 .navbar-main.p-4 {
   background: #101A4F;
 }
-.MuiPaper-root {
+/* .MuiPaper-root {
   left: 32% !important;
   width: 30%;
   background-color:#101A4F !important;
   color: #fff !important;
-}
+} */
 .satta-matka-home {
   background: #101A4F;
   overflow: scroll !important;
@@ -230,5 +230,9 @@ p.mt-2.text-white.space-between {
 @media (min-width:480px)  {
   .MuiPaper-root.MuiPaper-elevation {
     width: 50% !important;
+}
+.MuiPaper-root {
+  background-color: #0823aa !important;
+  color: #fff !important;
 }
 }
