@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   };
 
   const items = [
-    { text: "test", icon: <FaHome /> },
+    { text: "test", icon: <FaWallet size={30} />},
     { text: "Home", icon: <FaHome /> },
     { text: "See Full Profile", icon: <FaUser /> },
     { text: "Add Funds", icon: <FaMoneyBill /> },
@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
           <FaWallet size={30} /> 1000
         </div>
 
-        <div className="text-white text-sm font-medium">
+        <div className="text-white text-sm font-medium overflow-hidden">
         <div className="marquee font-bold">Welcome to Kalyan Satta Matka</div>
         </div>
 

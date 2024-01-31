@@ -11,7 +11,6 @@ body {
 }
 .navbar-main.p-4 {
   background: #101A4F;
-  overflow: hidden;
 }
 
 /* .MuiPaper-root {
@@ -231,8 +230,12 @@ p.mt-2.text-white.space-between {
 
 @media (min-width:480px)  {
 
-.MuiPaper-root {
+/* .MuiPaper-root {
   background-color: #020b35 !important;
   color: #fff !important;
 }
+
+.MuiPaper-root .css-4t3x6l-MuiPaper-root-MuiDrawer-paper{
+  background-color: #020b35 !important;
+} */
 }
