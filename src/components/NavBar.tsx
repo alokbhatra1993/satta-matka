@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div onClick={toggleSidebar} className="lg:flex items-center">
-          <span className="text-white pr-2">
+          <span className="text-white pr-2 flex items-center justify-between">
             <FaBars />
           </span>
         </div>

@@ -4,14 +4,16 @@ body {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   height: 100vh;
   font-family: 'Poppins', sans-serif;
   background-color: #fff;
 }
 .navbar-main.p-4 {
   background: #101A4F;
+  overflow: hidden;
 }
+
 /* .MuiPaper-root {
   left: 32% !important;
   width: 30%;
@@ -228,11 +230,9 @@ p.mt-2.text-white.space-between {
 
 
 @media (min-width:480px)  {
-  .MuiPaper-root.MuiPaper-elevation {
-    width: 50% !important;
-}
+
 .MuiPaper-root {
-  background-color: #0823aa !important;
+  background-color: #020b35 !important;
   color: #fff !important;
 }
 }
