@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
               key={index}
               onClick={() => handleItemClick(item.text)}
             >
-              {/* <ListItemIcon>{item.icon}</ListItemIcon> */}
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItem>
           ))}
