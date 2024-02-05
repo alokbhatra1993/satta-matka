@@ -59,20 +59,28 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      <Drawer anchor="left" open={isSidebarOpen} onClose={toggleSidebar}>
-        <List>
-          {items.map((item, index) => (
-            <ListItem
-              button
-              key={index}
-              onClick={() => handleItemClick(item.text)}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      <div className="app-container overflow-hidden">
+  {/* Your existing app content */}
+  <Drawer anchor="left" open={isSidebarOpen} onClose={toggleSidebar}>
+    <div className="mx-auto w-500">
+      <List>
+        {items.map((item, index) => (
+          <ListItem
+            button
+            key={index}
+            onClick={() => handleItemClick(item.text)}
+          >
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  </Drawer>
+</div>
+
+
+  
 
       {/* <div
        className={`flex flex-col ${isSidebarOpen ? 'w-64' : 'w-0 h-0'} bg-gray-800 h-screen overflow-hidden transition-width duration-300`}

@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500;800&display=swap');
 
 body {
-  max-width: 500px;
+  max-width: 550px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   height: 100vh;
   font-family: 'Poppins', sans-serif;
   background-color: #fff;
+  /* transform: translate(50%, 0%); */
 }
 .navbar-main.p-4 {
   background: #101A4F;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
+
 
 /* .MuiPaper-root {
   left: 32% !important;
@@ -241,4 +246,14 @@ p.mt-2.text-white.space-between {
 .MuiPaper-root .css-4t3x6l-MuiPaper-root-MuiDrawer-paper{
   background-color: #020b35 !important;
 } */
+
+body {
+  max-width: 550;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+}
 }
