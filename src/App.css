@@ -4,7 +4,7 @@ body {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   height: 100vh;
   font-family: 'Poppins', sans-serif;
   background-color: #fff;

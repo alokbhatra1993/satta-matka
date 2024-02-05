@@ -9,6 +9,7 @@ import Carousel from "./components/carousel";
 import Home from "./components/Home";
 import WithoutNavbar from "./components/WithoutNavbar";
 import WithNavbar from "./components/WithNavbar";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
 
           <Route element={<WithNavbar />}>
             <Route path="/" element={<Home />} />
+          </Route>
+
+          <Route element={<WithoutNavbar />}>
+            <Route path="/ForgotPassword" element={<ForgotPassword />} />
           </Route>
         </Routes>
       </Router>
