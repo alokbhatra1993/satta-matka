@@ -18,6 +18,7 @@ export const MyDatePicker: React.FC = () => {
       selected={selectedDate}
       onChange={handleDateChange}
       dateFormat="MM/dd/yyyy"
+      className="my-custom-datepicker"
     />
   );
 };

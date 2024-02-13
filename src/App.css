@@ -200,6 +200,10 @@ button.slick-arrow.slick-prev {
   height: 40vmin;
   pointer-events: none;
 }
+input.my-custom-datepicker {
+  border-radius: 18px;
+  margin: 10px 0 10px 0;
+}
 p.mt-2.text-white.space-between {
   display: flex;
   justify-content: space-between;
