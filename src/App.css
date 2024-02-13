@@ -52,7 +52,7 @@ a.btn-card-closed {
   border-radius: 10px;
   margin: 10px 0;
   display: inline-block;
-  background-image: linear-gradient(to right top, #f75306, #e75305, #d85305, #c95206, #bb5108);
+  background-image: linear-gradient(to right top, #e00a4b, #dc3545, #d85305, #c95206, #c31223);
 }
 /* .MuiPaper-root {
   left: 32.5%;

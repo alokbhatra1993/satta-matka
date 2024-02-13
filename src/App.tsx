@@ -10,6 +10,9 @@ import Home from "./components/Home";
 import WithoutNavbar from "./components/WithoutNavbar";
 import WithNavbar from "./components/WithNavbar";
 import ForgotPassword from "./components/ForgotPassword";
+import StarLine from "./components/StarLine";
+import { BidHistory } from "./components/BidHistory";
+import DateRangePicker from "./components/DateRangePicker";
 
 function App() {
   return (
@@ -30,6 +33,13 @@ function App() {
 
           <Route element={<WithoutNavbar />}>
             <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          </Route>
+
+          <Route element={<WithNavbar />}>
+            <Route path="/starline" element={<StarLine />} />
+          </Route>
+          <Route element={<WithNavbar />}>
+            <Route path="/bidhistory" element={<BidHistory />} />
           </Route>
         </Routes>
       </Router>

@@ -1,55 +1,176 @@
 import React, { useState } from "react";
-import logo from "../images/logo512.png";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const ForgotPassword: React.FC = () => {
+const StarLine: React.FC = () => {
+  const [formData, setFormData] = useState({
+    mobile: "",
+    password: "",
+  });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
 
-    const [formData, setFormData] = useState({
-        mobile: "",
-        password: "",
-    });
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { }
+  const handleSubmit = async (e: React.FormEvent) => {};
 
-    const handleSubmit = async (e: React.FormEvent) => { }
-
-    return (
-        <div className="container mx-auto p-4 max-w-md rounded-sm shadow-md login-primary text-white">
-            <img src={logo} alt="Logo" className="flex mx-auto" />
-            <h2 className="text-2xl font-bold mb-2 mt-4">Forgot Password!</h2>
-            <form className="text-left" onSubmit={handleSubmit}>
-                <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                        Mobile Number
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.mobile}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-
-                <button
-                    type="submit"
-                    className="w-full mt-4 bg-blue-800 text-white py-2 mb-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-                    onClick={handleSubmit}
-                >
-                    Submit Request
-                </button>
-
-                <button
-                    type="submit"
-                    className="w-full bg-yellow-500 text-white mt-2 py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-                // onClick={goToSignUpPage}
-                >
-                    backtologin
-                </button>
-            </form>
+  return (
+    <>
+      <div className="container mx-auto p-4 max-w-md rounded-sm shadow-md login-primary text-white mt-4 rounded">
+        <h1 className="text-lg font-bold">Star Line Games</h1>
+        <div className="flex justify-content-between">
+          <p>Left Digit</p>
+          <p>10-90</p>
         </div>
-    )
+        <div className="flex justify-content-between mt-2">
+          <p>Right Digit</p>
+          <p>10-90</p>
+        </div>
+        <div className="flex justify-content-between mt-2">
+          <p>Jodi Digit</p>
+          <p>10-900</p>
+        </div>
+      </div>
+      <div className="mt-6">
+        <Link
+          className="mr-2 px-4 py-2 login-primary text-white rounded"
+          to="/bid-history"
+        >
+          BID HISTORY
+        </Link>
+        <Link
+          className="mr-2 px-4 py-2 login-primary text-white rounded"
+          to="/win-history"
+        >
+          WIN HISTORY
+        </Link>
+      </div>
+      <div className="max-w-md mx-auto rounded-xl overflow-hidden satta-matka-home mt-4">
+        <div className="satta-matka">
+          <div className="md:flex-shrink-0"></div>
+          <div className="card-bg">
+            <div className="card-new p-2">
+              <div className="uppercase heading-block tracking-wide text-xl font-bold">
+                DESAWAR
+              </div>
+              <div className="flex align-items-center justify-around">
+                <a
+                  href="#"
+                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
+                >
+                  **
+                </a>
 
-}
+                <div className="flex">
+                  {" "}
+                  <a className="btn-card-closed rounded-5" href="#">
+                    Closed
+                  </a>
+                  <span className="text-red-500 flex items-center ml-3">
+                    Closed
+                  </span>
+                </div>
+              </div>
+              <p className="mt-1 text-black border-top-0 justify-center !important items-center">
+                05:30 PM
+              </p>
+            </div>
 
-export default ForgotPassword;
+            <div className="card-new p-2">
+              <div className="uppercase heading-block tracking-wide text-xl font-bold">
+                FARIDABAD
+              </div>
+              <div className="flex align-items-center justify-around">
+                <a
+                  href="#"
+                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
+                >
+                  **
+                </a>
+
+                <div className="flex">
+                  {" "}
+                  <a className="btn-card rounded-5" href="#">
+                    Play Now
+                  </a>
+               
+                  <span className="text-green-500 flex items-center ml-3">
+                    Running
+                  </span>
+                </div>
+              </div>
+            
+              <p className="mt-1 text-black border-top-0 justify-center !important items-center">
+                06:30 PM
+              </p>
+            </div>
+
+            <div className="card-new p-2">
+              <div className="uppercase heading-block tracking-wide text-xl font-bold">
+                GAZIABAD
+              </div>
+              <div className="flex align-items-center justify-around">
+                <a
+                  href="#"
+                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
+                >
+                  **
+                </a>
+
+                <div className="flex">
+                  {" "}
+                  <a className="btn-card rounded-5" href="#">
+                    Play Now
+                  </a>
+               
+                  <span className="text-green-500 flex items-center ml-3">
+                    Running
+                  </span>
+                </div>
+              </div>
+            
+              <p className="mt-1 text-black border-top-0 justify-center !important items-center">
+                06:30 PM
+              </p>
+            </div>
+            <div className="card-new p-2">
+              <div className="uppercase heading-block tracking-wide text-xl font-bold">
+                GALI
+              </div>
+              <div className="flex align-items-center justify-around">
+                <a
+                  href="#"
+                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
+                >
+                  **
+                </a>
+
+                <div className="flex">
+                  {" "}
+                  <a className="btn-card rounded-5" href="#">
+                    Play Now
+                  </a>
+               
+                  <span className="text-green-500 flex items-center ml-3">
+                    Running
+                  </span>
+                </div>
+              </div>
+            
+              <p className="mt-1 text-black border-top-0 justify-center !important items-center">
+                11:30 PM
+              </p>
+            </div>
+
+
+         
+        
+          </div>
+        </div>
+       
+      </div>
+      <a className="mr-2 px-4 py-2 mt-3 flex justify-center login-primary text-white rounded w-100" href="#">
+                    Chart
+                  </a>
+    </>
+  );
+};
+
+export default StarLine;
