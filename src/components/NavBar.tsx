@@ -46,16 +46,8 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="navbar-main p-4">
-      {
-        location.pathname == "/startline" ? (
-          <div className="">
-            <button className="text-white">Back</button>
-            <h1>Bid History</h1>
-          </div>
-        ) : null
-      }
-      {
-        location.pathname !== "/startline" ? (
+    
+      
           <div className="container mx-auto flex items-center justify-between">
             <div className="text-white text-sm font-medium flex items-center">
               <FaWallet size={30} /> 1000
@@ -72,8 +64,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-        ) : null
-      }
+  
 
       <div className="app-container overflow-hidden">
         {/* Your existing app content */}
