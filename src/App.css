@@ -10,7 +10,7 @@ body {
   background-color: #fff;
   /* transform: translate(50%, 0%); */
 }
-.navbar-main.p-4 {
+.navbar-main.p-3 {
   background: #101A4F;
 }
 .overflow-hidden {
@@ -203,6 +203,9 @@ button.slick-arrow.slick-prev {
 input.my-custom-datepicker {
   border-radius: 18px;
   margin: 10px 0 10px 0;
+  height: 40px;
+  color: #000;
+  padding-left: 19px;
 }
 p.mt-2.text-white.space-between {
   display: flex;

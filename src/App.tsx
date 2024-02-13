@@ -12,6 +12,7 @@ import WithNavbar from "./components/WithNavbar";
 import ForgotPassword from "./components/ForgotPassword";
 import StarLine from "./components/StarLine";
 import { BidHistory } from "./components/BidHistory";
+import WinHistory from "./components/WinHistory";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route element={<WithoutNavbar />}>
             <Route path="/bidhistory" element={<BidHistory />} />
+          </Route>
+          <Route element={<WithoutNavbar />}>
+            <Route path="/winhistory" element={<WinHistory />} />
           </Route>
         </Routes>
       </Router>
