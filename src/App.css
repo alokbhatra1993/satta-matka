@@ -206,6 +206,7 @@ input.my-custom-datepicker {
   height: 40px;
   color: #000;
   padding-left: 19px;
+  width: 80%;
 }
 p.mt-2.text-white.space-between {
   display: flex;

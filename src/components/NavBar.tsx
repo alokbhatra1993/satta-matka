@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="navbar-main p-4">
+    <div className="navbar-main p-4 bg-blue-800">
     
       
           <div className="container mx-auto flex items-center justify-between">
