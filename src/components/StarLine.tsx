@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { NavBar2 } from "./NavBar2";
 
 const StarLine: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,9 @@ const StarLine: React.FC = () => {
 
   return (
     <>
+          <NavBar2 isStarLine={true} />
       <div className="container mx-auto p-4 max-w-md rounded-sm shadow-md login-primary text-white mt-4 rounded">
+
         <h1 className="text-lg font-bold">Star Line Games</h1>
         <div className="flex justify-content-between">
           <p>Left Digit</p>

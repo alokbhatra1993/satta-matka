@@ -3,12 +3,14 @@ import { FaArrowLeft } from "react-icons/fa";
 
 interface NavBar2Props {
   isFund?: boolean;
+  isStarLine?: boolean;
   isBidHistory?: boolean;
   isWinHistory?: boolean;
 }
 
 export const NavBar2: React.FC<NavBar2Props> = ({
   isFund,
+  isStarLine,
   isBidHistory,
   isWinHistory,
   
@@ -16,16 +18,30 @@ export const NavBar2: React.FC<NavBar2Props> = ({
   return (
     <>
       {isBidHistory ? (
-        <div className="navbar-main p-3 mb-6 text-left flex items-center">
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft />
-          <button className="ml-3 flex items-center"> Bid History</button>
+          <button className="ml-3 flex items-center font-bold"> Bid History</button>
         </div>
       ) : null}
 
       {isWinHistory ? (
-        <div className="navbar-main p-3 mb-6 text-left flex items-center">
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft />
-          <button className="ml-3 flex items-center"> Win History</button>
+          <button className="ml-3 flex items-center font-bold"> Win History</button>
+        </div>
+      ) : null}
+
+{isFund ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold"> Add Points</button>
+        </div>
+      ) : null}
+
+{isStarLine ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold"> Gali Desawar</button>
         </div>
       ) : null}
 

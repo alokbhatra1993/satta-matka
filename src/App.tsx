@@ -13,6 +13,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import StarLine from "./components/StarLine";
 import { BidHistory } from "./components/BidHistory";
 import WinHistory from "./components/WinHistory";
+import { Funds } from "./components/Funds";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
           <Route element={<WithoutNavbar />}>
             <Route path="/winhistory" element={<WinHistory />} />
           </Route>
+
+          <Route element={<WithoutNavbar />}>
+            <Route path="/funds" element={<Funds />} />
+          </Route>
         </Routes>
       </Router>
     </div>
@@ -51,3 +56,5 @@ function App() {
 }
 
 export default App;
+
+

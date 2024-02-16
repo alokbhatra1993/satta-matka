@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
 
   
 
-      <div className="app-container overflow-hidden">
+      <div className="app-container overflow-7">
         {/* Your existing app content */}
         <Drawer anchor="left" open={isSidebarOpen} onClose={toggleSidebar}>
           <div className="mx-auto w-500">
