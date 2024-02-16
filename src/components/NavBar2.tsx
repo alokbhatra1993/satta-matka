@@ -48,5 +48,16 @@ export const NavBar2: React.FC<NavBar2Props> = ({
 
 
     </>
-  );
+  )
 };
+
+
+
+
+
+
+
+
+
+
+ 
