@@ -6,6 +6,7 @@ interface NavBar2Props {
   isStarLine?: boolean;
   isBidHistory?: boolean;
   isWinHistory?: boolean;
+  isHelp?: boolean;
 }
 
 export const NavBar2: React.FC<NavBar2Props> = ({
@@ -13,6 +14,7 @@ export const NavBar2: React.FC<NavBar2Props> = ({
   isStarLine,
   isBidHistory,
   isWinHistory,
+  isHelp,
   
 }) => {
   return (
@@ -45,11 +47,26 @@ export const NavBar2: React.FC<NavBar2Props> = ({
         </div>
       ) : null}
 
+{isHelp ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold"> How to Play</button>
+        </div>
+      ) : null}
+
 
 
     </>
   )
 };
+
+
+
+
+
+
+
+
 
 
 

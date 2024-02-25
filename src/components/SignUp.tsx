@@ -3,10 +3,10 @@ import logo from "../images/logo512.png";
 import { useNavigate } from 'react-router-dom';
 
 interface FormData {
-  name: string;
-  mobile: number;
-  email: string;
-  password: string;
+  full_name: '',
+  mobile: '',
+  pin: '',
+  password: ''
 }
 
 const SignupForm: React.FC = () => {
@@ -14,19 +14,13 @@ const SignupForm: React.FC = () => {
   //hooks
    const [count , setCount]= useState(0)
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
+    full_name: '',
+    mobile: '',
+    pin: '',
+    password: ''
   });
 console.log("formData",formData)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // setFormData({
-    //   ...formData,
-    //   ["email"]:
-    //    "alok@gmail.com",
-    // });
-    setCount(1)
-    // count=1
 console.log("targetname",e.target.name,"targetvalue",e.target.value);
     // formData["email"]="alok@gmail.com"
     setFormData({
@@ -35,13 +29,13 @@ console.log("targetname",e.target.name,"targetvalue",e.target.value);
     });
   };
 
-
 const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log("formdata",formData);
     try {
-      const response = await fetch('http://localhost:3005/auth/signup', {
+      const response = await fetch('https://smweb.demo-snp.com/api/Api/signup', {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -65,19 +59,19 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   }
   return (
-    <div className="container mx-auto mt-8 p-4 max-w-md rounded shadow-md text-left login-primary text-white">
+    <div className="container mx-auto mt-8 p-4 max-w-md rounded shadow-md text-left login-primary">
         <img src={logo} alt="Logo" className="flex mx-auto" />
-      <h2 className="text-2xl font-bold mt-4 mb-4">Register</h2>
+      <h2 className="text-2xl font-bold mt-4 mb-4 text-white">Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium mb-1">
+          <label htmlFor="name" className="block text-white text-sm font-medium mb-1">
             Enter your Name 
           </label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="full_name"
+            name="full_name"
+            value={formData.full_name}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
@@ -85,42 +79,42 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium mb-1">
+          <label htmlFor="name" className="block text-sm font-medium mb-1 text-white">
              Mobile No 
           </label>
           <input
             type="text"
             id="name"
-            name="name"
-            value={formData.name}
+            name="mobile"
+            value={formData.mobile}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium mb-1">
+          <label htmlFor="email" className="block text-sm font-medium mb-1 text-white">
             Password 
           </label>
           <input
-            type="email"
+            type="text"
             id="email"
-            name="email"
-            value={formData.email}
+            name="password"
+            value={formData.password}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium mb-1">
+          <label htmlFor="password" className="block text-sm font-medium mb-1 text-white">
             Enter your Pin 
           </label>
           <input
-            type="password"
+            type="text"
             id="password"
-            name="password"
-            value={formData.password}
+            name="pin"
+            value={formData.pin}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"

@@ -14,6 +14,10 @@ import StarLine from "./components/StarLine";
 import { BidHistory } from "./components/BidHistory";
 import WinHistory from "./components/WinHistory";
 import { Funds } from "./components/Funds";
+import { Help } from "./components/Help";
+
+
+
 
 function App() {
   return (
@@ -48,6 +52,10 @@ function App() {
 
           <Route element={<WithoutNavbar />}>
             <Route path="/funds" element={<Funds />} />
+          </Route>
+
+          <Route element={<WithoutNavbar />}>
+            <Route path="/help" element={<Help />} />
           </Route>
         </Routes>
       </Router>
