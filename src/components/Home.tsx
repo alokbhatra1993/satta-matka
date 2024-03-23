@@ -10,61 +10,64 @@ import {
   FaStreetView,
   FaWhatsapp,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     // <>
     <div>
       <Carousel />
 
       <div className="container primary-text">
-  <div className="flex flex-row gap-3">
-    {/* WhatsApp Button */}
-    <button className="custom-green text-white font-medium py-2 px-2 rounded">
-      <FaWhatsapp className="mr-2" />
-      WhatsApp
-    </button>
+        <div className="flex flex-row gap-3">
+          {/* WhatsApp Button */}
+          <button className="custom-green text-white font-medium py-2 px-2 rounded">
+            <FaWhatsapp className="mr-2" />
+            WhatsApp
+          </button>
 
-    {/* Add Money Button */}
-    <button className="custom-blue text-white font-medium py-2 px-2 rounded">
-      <FaMoneyBillWave className="mr-2" />
-      Add Money
-    </button>
+          {/* Add Money Button */}
+          <button className="custom-blue text-white font-medium py-2 px-2 rounded">
+            <FaMoneyBillWave className="mr-2" />
+            Add Money
+          </button>
 
-    {/* How to Play Button */}
-    <button className="custom-purple text-white font-medium py-2 px-2 rounded">
-      <FaPlay className="mr-2" />
-      How to Play
-    </button>
+          {/* How to Play Button */}
+          <button className="custom-purple text-white font-medium py-2 px-2 rounded" onClick={() => { navigate("/help") }}>
+            <FaPlay className="mr-2" />
+            How to Play
+          </button>
 
-    {/* Phone Button */}
-    <button className="bg-white hover:bg-black-600 text-black font-medium py-2 px-2 rounded">
-      <FaPhone className="mr-2" />
-      9001729883
-    </button>
-  </div>
+          {/* Phone Button */}
+          <button className="bg-white hover:bg-black-600 text-black font-medium py-2 px-2 rounded">
+            <FaPhone className="mr-2" />
+            9001729883
+          </button>
+        </div>
 
-  {/* Secondary Buttons */}
-  <div className="flex flex-row md:flex-row gap-3 md:space-x-4 mt-4">
-    {/* Play Star Line Button */}
-    <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded">
-      <FaPlayCircle className="mr-2" />
-      Play Star Line
-    </button>
+        {/* Secondary Buttons */}
+        <div className="flex flex-row md:flex-row gap-3 md:space-x-4 mt-4">
+          {/* Play Star Line Button */}
+          <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded">
+            <FaPlayCircle className="mr-2" />
+            Play Star Line
+          </button>
 
-    {/* Website Button */}
-    <button className="bg-white hover:bg-indigo-600 text-black font-medium py-2 px-4 rounded">
-      <FaGlobe className="mr-2" />
-      Website
-    </button>
+          {/* Website Button */}
+          <button className="bg-white hover:bg-indigo-600 text-black font-medium py-2 px-4 rounded">
+            <FaGlobe className="mr-2" />
+            Website
+          </button>
 
-    {/* Gali Desawar Button */}
-    <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded">
-      <FaStreetView className="mr-2" />
-      Gali Desawar
-    </button>
-  </div>
-</div>
+          {/* Gali Desawar Button */}
+          <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded">
+            <FaStreetView className="mr-2" />
+            Gali Desawar
+          </button>
+        </div>
+      </div>
 
 
       <div className="mx-auto rounded-xl overflow-hidden satta-matka-home">

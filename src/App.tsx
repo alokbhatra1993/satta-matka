@@ -1,17 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/NavBar";
 import SignUpForm from "./components/SignUp";
-import Login from "./components/Login";  
+import Login from "./components/Login";
 import Carousel from "./components/carousel";
 import Home from "./components/Home";
 import WithoutNavbar from "./components/WithoutNavbar";
 import WithNavbar from "./components/WithNavbar";
 import ForgotPassword from "./components/ForgotPassword";
 import StarLine from "./components/StarLine";
-import { BidHistory } from "./components/BidHistory";  
+import { BidHistory } from "./components/BidHistory";
 import WinHistory from "./components/WinHistory";
 import { Funds } from "./components/Funds";
 import { Help } from "./components/Help";
@@ -20,11 +20,8 @@ import { MadhurNight } from "./components/MadhurNight"
 import GameTime from "./components/GameTime";
 import EditProfile from "./components/EditProfile";
 
-
-
-
-
 function App() {
+  const token = localStorage.getItem("token")
   return (
     <div className="App">
       <Router>
@@ -36,9 +33,22 @@ function App() {
           <Route element={<WithoutNavbar />}>
             <Route path="/signup" element={<SignUpForm />} />
           </Route>
+          <Route element={<WithoutNavbar />}>
+            <Route path="/security_pin" element={<SecurityPin />} />
+          </Route>
 
           <Route element={<WithNavbar />}>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route
+              path="/"
+              element={
+                token ? (
+                  <Home />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
           </Route>
 
           <Route element={<WithoutNavbar />}>
@@ -74,7 +84,7 @@ function App() {
             <Route path="/editprofile" element={<EditProfile />} />
           </Route>
 
-        
+
         </Routes>
       </Router>
     </div>

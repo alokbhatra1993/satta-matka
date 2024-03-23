@@ -1,58 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import logo from "../images/logo512.png";
 import { useNavigate } from "react-router-dom";
 
 interface FormData {
-  fullName: "";
-  mobile: "";
-  pin: "";
-  password: "";
+  full_name: string;
+  mobile: string;
+  pin: string;
+  password: string;
 }
 
 const SignupForm: React.FC = () => {
   const navigate = useNavigate();
-  //hooks
-  const [count, setCount] = useState(0);
-  const [formData, setFormData] = useState({
-    full_name: "",
-    mobile: "",
-    pin: "",
-    password: "",
-  });
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
-  console.log("formData", formData);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("targetname", e.target.name, "targetvalue", e.target.value);
-    // formData["email"]="alok@gmail.com"
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const onSubmit = async (data: FormData) => {
+    // const formData=data
+    console.log({ data });
 
-  const headers = { "Content-Type": "application/json" };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("formdata", formData);
     try {
+      const formData = new URLSearchParams();
+      formData.append("full_name", data.full_name);
+      formData.append("mobile", data.mobile);
+      formData.append("pin", data.pin);
+      formData.append("password", data.password);
+
       const response = await fetch("https://smapidev.co.in/api/Api/signup", {
         method: "POST",
-        mode: "cors",
-        headers: headers,
-        body: JSON.stringify(formData),
+        body: formData,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cookie': 'ci_session=0b0000be09ab15b1746f67a94c05d0d6761be9f3'
+        },
       });
-
-      console.log({ response });
-
-      if (response.ok) {
-        // Successful signup
-        alert("User signed success");
-        console.log("User signed up successfully!");
-      } else {
-        // Handle errors, e.g., show an error message to the user
-        console.error("Error during signup:", await response.json());
-      }
+      response.json().then((data: any) => {
+        alert(data.message)
+        navigate("/login")
+      }).catch((error: any) => {
+        console.log({ error });
+        alert(error)
+      })
     } catch (error) {
       console.error("Error during signup:", error);
     }
@@ -61,99 +48,44 @@ const SignupForm: React.FC = () => {
   const gotoLoginPage = () => {
     navigate("/login");
   };
+
   return (
     <div className="container mx-auto mt-8 p-4 max-w-md rounded shadow-md text-left login-primary">
       <img src={logo} alt="Logo" className="flex mx-auto" />
       <h2 className="text-2xl font-bold mt-4 mb-4 text-white">Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-white text-sm font-medium mb-1"
-          >
-            Enter your Name
-          </label>
-          <input
-            type="text"
-            id="full_name"
-            name="full_name"
-            value={formData.full_name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
-          />
+          <label htmlFor="full_name" className="block text-white text-sm font-medium mb-1">Enter your Name</label>
+          <input type="text" id="full_name" {...register("full_name", { required: true })} className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500" />
+          {errors.full_name && <span className="text-red-500">This field is required</span>}
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium mb-1 text-white"
-          >
-            Mobile No
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
-          />
+          <label htmlFor="mobile" className="block text-white text-sm font-medium mb-1">Mobile No</label>
+          <input type="tel" id="mobile" {...register("mobile", { required: true, pattern: /^[0-9]*$/, minLength: 10, maxLength: 10 })} className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500" />
+          {errors.mobile && errors.mobile.type === "required" && <span className="text-red-500">Mobile number is required</span>}
+          {errors.mobile && errors.mobile.type === "minLength" && <span className="text-red-500">Mobile number must be exactly 10 digits</span>}
+          {errors.mobile && errors.mobile.type === "maxLength" && <span className="text-red-500">Mobile number must be exactly 10 digits</span>}
+          {errors.mobile && errors.mobile.type === "pattern" && <span className="text-red-500">Mobile number must be valid</span>}
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium mb-1 text-white"
-          >
-            Password
-          </label>
-          <input
-            type="text"
-            id="email"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium mb-1 text-white"
-          >
-            Enter your Pin
-          </label>
-          <input
-            type="text"
-            id="password"
-            name="pin"
-            value={formData.pin}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 mb-5 text-white py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-          onClick={handleSubmit}
-        >
-          Sign Up
-        </button>
 
-        <a href="#" className="mt-8 mb-2 text-white">
-          Already have an Account?
-        </a>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-white text-sm font-medium mb-1">Password</label>
+          <input type="password" id="password" {...register("password", { required: true })} className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500" />
+          {errors.password && <span className="text-red-500">This field is required</span>}
+        </div>
 
-        <button
-          type="submit"
-          className="w-full bg-yellow-500 text-white mt-3 py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-          onClick={gotoLoginPage}
-        >
-          Login
-        </button>
+        <div className="mb-4">
+          <label htmlFor="pin" className="block text-white text-sm font-medium mb-1">Enter your Pin</label>
+          <input type="tel" id="pin" {...register("pin", { required: true, pattern: /^[0-9]*$/ })} className="w-full px-4 py-2 border rounded-5 focus:outline-none focus:border-blue-500" />
+          {errors.pin && <span className="text-red-500">Please enter a valid PIN</span>}
+        </div>
+
+        <button type="submit" className="w-full bg-blue-500 mb-5 text-white py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">Sign Up</button>
+
+        <a href="#" className="mt-8 mb-2 text-white">Already have an Account?</a>
+
+        <button type="button" onClick={gotoLoginPage} className="w-full bg-yellow-500 text-white mt-3 py-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">Login</button>
       </form>
     </div>
   );

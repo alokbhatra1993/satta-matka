@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../images/logo512.png";
 import { FaArrowLeft } from "react-icons/fa";
 import { NavBar2 } from "./NavBar2";
@@ -16,6 +16,39 @@ export const Help: React.FC<NavBar2Props> = ({
   isWinHistory,
   isHelp,
 }) => {
+
+  const token = localStorage.getItem("token") || '';
+
+  useEffect(() => {
+    howToPlay()
+  }, []);
+
+  const howToPlay = async () => {
+    try {
+
+      const response = await fetch("https://smapidev.co.in/api/Api/how_to_play", {
+        method: "POST",
+        headers: {
+          'token': token,
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          // 'Cookie': 'ci_session=0b0000be09ab15b1746f67a94c05d0d6761be9f3'
+        },
+      });
+      response.json().then((data: any) => {
+        console.log({ data });
+
+        // alert(data.message)
+        // navigate("/login")
+      }).catch((error: any) => {
+        console.log({ error });
+        alert(error)
+      })
+    } catch (error) {
+      console.log({ error });
+
+    }
+  }
+
   return (
     <div>
       <NavBar2 isHelp={true} />
@@ -29,11 +62,11 @@ export const Help: React.FC<NavBar2Props> = ({
 
         </div>
 
-       
+
       </div>
       <div className="px-4 py-2">
-          <button className="custom-blue-1 mt-3 w-100 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm">HOW TO PLAY</button>
-        </div>
+        <button className="custom-blue-1 mt-3 w-100 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm">HOW TO PLAY</button>
+      </div>
     </div>
   );
 };
