@@ -7,6 +7,9 @@ interface NavBar2Props {
   isBidHistory?: boolean;
   isWinHistory?: boolean;
   isHelp?: boolean;
+  isMadhurNight?:boolean;
+  isGameTime?:boolean;
+  isEditProfile?:boolean;
 }
 
 export const NavBar2: React.FC<NavBar2Props> = ({
@@ -15,6 +18,9 @@ export const NavBar2: React.FC<NavBar2Props> = ({
   isBidHistory,
   isWinHistory,
   isHelp,
+  isMadhurNight,
+  isGameTime,
+  isEditProfile
   
 }) => {
   return (
@@ -51,6 +57,30 @@ export const NavBar2: React.FC<NavBar2Props> = ({
         <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft />
           <button className="ml-3 flex items-center font-bold"> How to Play</button>
+        </div>
+      ) : null}
+
+
+{isMadhurNight   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold"> Madhur Night</button>
+        </div>
+      ) : null}
+
+{isGameTime   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold">03:00 PM</button>
+        </div>
+      ) : null}
+
+
+
+{isEditProfile   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold">Edit Profile</button>
         </div>
       ) : null}
 

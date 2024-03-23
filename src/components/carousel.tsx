@@ -1,8 +1,13 @@
 // Carousel.tsx
 import React from "react";
 import Slider from "react-slick";
+
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import banner1 from "../images/banner1.jpg";
+
 
 const Carousel: React.FC = () => {
   const settings = {
@@ -21,12 +26,16 @@ const Carousel: React.FC = () => {
         <div>
           <img
             className="w-full"
-            src="https://5.imimg.com/data5/SELLER/Default/2023/10/356775806/FF/RW/DT/54596979/satka-matka-game-development.jpg"
+            src={banner1}
             alt="Slide 1"
           />
         </div>
         <div>
-          <img className="w-full" src="https://aryandigital.in/wp-content/uploads/2023/07/WhatsApp-Image-2023-07-30-at-3.11.25-PM-1-780x470.jpeg" alt="Slide 2" />
+        <img
+            className="w-full"
+            src={banner1}
+            alt="Slide 1"
+          />
         </div>
         <div>
           <img className="w-full" src="https://blog.kheloo.com/wp-content/uploads/2023/07/Top-Reasons-Why-Satta-Matka-is-so-Famous.jpeg" alt="Slide 3" />

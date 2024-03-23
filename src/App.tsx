@@ -4,17 +4,22 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/NavBar";
 import SignUpForm from "./components/SignUp";
-import Login from "./components/Login";
+import Login from "./components/Login";  
 import Carousel from "./components/carousel";
 import Home from "./components/Home";
 import WithoutNavbar from "./components/WithoutNavbar";
 import WithNavbar from "./components/WithNavbar";
 import ForgotPassword from "./components/ForgotPassword";
 import StarLine from "./components/StarLine";
-import { BidHistory } from "./components/BidHistory";
+import { BidHistory } from "./components/BidHistory";  
 import WinHistory from "./components/WinHistory";
 import { Funds } from "./components/Funds";
 import { Help } from "./components/Help";
+import SecurityPin from "./components/SecurityPin";
+import { MadhurNight } from "./components/MadhurNight"
+import GameTime from "./components/GameTime";
+import EditProfile from "./components/EditProfile";
+
 
 
 
@@ -57,6 +62,19 @@ function App() {
           <Route element={<WithoutNavbar />}>
             <Route path="/help" element={<Help />} />
           </Route>
+
+          <Route element={<MadhurNight />}>
+            <Route path="/madhurnight" element={<MadhurNight />} />
+          </Route>
+          <Route element={<GameTime />}>
+            <Route path="/gametime" element={<GameTime />} />
+          </Route>
+
+          <Route element={<EditProfile />}>
+            <Route path="/editprofile" element={<EditProfile />} />
+          </Route>
+
+        
         </Routes>
       </Router>
     </div>

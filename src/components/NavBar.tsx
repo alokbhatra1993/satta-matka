@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="navbar-main p-4 bg-blue-800">
+    <div className="navbar-main p-3 bg-blue-800">
     
       
           <div className="container mx-auto flex items-center justify-between">
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
               <FaWallet size={30} /> 1000
             </div>
 
-            <div className="text-white text-sm font-medium overflow-hidden">
+            <div className="text-white text-md font-medium overflow-hidden">
               <div className="marquee font-bold">Welcome to Kalyan Satta Matka</div>
             </div>
 
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
       <div className="app-container overflow-7">
         {/* Your existing app content */}
         <Drawer anchor="left" open={isSidebarOpen} onClose={toggleSidebar}>
-          <div className="mx-auto w-500">
+          <div className="custom-color mx-auto w-500 text-white">
             <List>
               {items.map((item, index) => (
                 <ListItem
