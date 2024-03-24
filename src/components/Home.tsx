@@ -142,8 +142,8 @@ const Home: React.FC = () => {
                           </div>
                           {
                             game.play ? (
-                              <div className="flex">
-                                <Link className="btn-card rounded-5"  to="/madhurnight" />
+                              <div className="flex btn-card ">
+                                <Link className="rounded-5"  to="/madhurnight" />
                                   Play Now
                               </div>
                             ) : (

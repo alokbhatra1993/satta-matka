@@ -49,6 +49,16 @@ button.add-payment-method {
   background: #6200ED;
   /* display: flex; */
 }
+.btn-card {
+  padding: 10px 30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  background-image: linear-gradient(to right top, #089e4e, #03973f, #008f2f, #00881d, #008001);
+  border-radius:50px;
+}
 
 :root {
   --custom-blue: #101A4F;
@@ -56,6 +66,9 @@ button.add-payment-method {
 }
 .custom-blue-1{
   background: #101A4F;
+}
+.MuiListItemText-root.css-tlelie-MuiListItemText-root span {
+  padding-left: 20px;
 }
 .container.primary-text button {
   text-align: -webkit-center;
