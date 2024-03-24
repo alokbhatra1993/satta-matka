@@ -1,13 +1,14 @@
 import React from "react";
-import singleDigit from "../images/single-digit (1).svg"; 
+import singleDigit from "../images/single-digit (1).svg";
 import jodiDigit from "../images/jodi-digit.svg";
 import singlePanna from "../images/single-panna.svg";
-import doublePanna from "../images/double-panna.svg"; 
+import doublePanna from "../images/double-panna.svg";
 import tripplePanna from "../images/tripple-panna.svg";
 import halfSangam from "../images/half-sangam.svg";
 import fullSangam from "../images/full-sangam.svg"; // Import the image
 import { FaArrowLeft } from "react-icons/fa";
 import { NavBar2 } from "./NavBar2";
+import { useLocation } from "react-router-dom";
 
 interface NavBar2Props {
   isFund?: boolean;
@@ -24,6 +25,7 @@ export const MadhurNight: React.FC<NavBar2Props> = ({
   isHelp,
   isMadhurNight
 }) => {
+  const location = useLocation();
   return (
     <div className="container px-15">
       <NavBar2 isMadhurNight={true} />
@@ -33,12 +35,16 @@ export const MadhurNight: React.FC<NavBar2Props> = ({
             <img src={singleDigit} alt="Left Image" className="w-full" />
           </a>
         </div>
-        <div className="w-1/2 pl-2">
-          <a href="/right-image-url">
-            <img src={jodiDigit} alt="Right Image" className="w-full" />
-          </a>
-        </div>
-        
+        {
+          location?.state?.open ? (
+            <div className="w-1/2 pl-2">
+              <a href="/right-image-url">
+                <img src={jodiDigit} alt="Right Image" className="w-full" />
+              </a>
+            </div>
+          ) : null
+        }
+
       </div>
       <div className="flex flex-row">
         <div className="w-1/2">
@@ -51,7 +57,7 @@ export const MadhurNight: React.FC<NavBar2Props> = ({
             <img src={doublePanna} alt="Right Image" className="w-full" />
           </a>
         </div>
-        
+
       </div>
       <div className="flex flex-row">
         <div className="w-1/2">
@@ -59,23 +65,29 @@ export const MadhurNight: React.FC<NavBar2Props> = ({
             <img src={tripplePanna} alt="Left Image" className="w-full" />
           </a>
         </div>
-        <div className="w-1/2">
-          <a href="/right-image-url">
-            <img src={halfSangam} alt="Right Image" className="w-full" />
-          </a>
-        </div>
-        
-        
+        {
+          location?.state?.open ? (
+            <div className="w-1/2">
+              <a href="/right-image-url">
+                <img src={halfSangam} alt="Right Image" className="w-full" />
+              </a>
+            </div>
+          ) : null}
+
+
       </div>
-      <div className="flex flex-row">
-        <div className="w-1/2 mx-auto">
-          <a href="/left-image-url">
-            <img src={fullSangam} alt="Left Image" className="w-full" />
-          </a>
-        </div>
-      
-      </div>
-      
+      {
+        location?.state?.open ? (
+          <div className="flex flex-row">
+            <div className="w-1/2 mx-auto">
+              <a href="/left-image-url">
+                <img src={fullSangam} alt="Left Image" className="w-full" />
+              </a>
+            </div>
+
+          </div>
+        ) : null}
+
     </div>
   );
 };

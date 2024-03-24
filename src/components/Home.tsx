@@ -89,7 +89,7 @@ const Home: React.FC = () => {
         {/* Secondary Buttons */}
         <div className="flex flex-row md:flex-row gap-3 md:space-x-4 mt-4">
           {/* Play Star Line Button */}
-          <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded" onClick={() => { navigate("/starline" , {state:{startLine:true}}) }}>
+          <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded" onClick={() => { navigate("/starline", { state: { startLine: true } }) }}>
             <FaPlayCircle className="mr-2" />
             Play Star Line
           </button>
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
           </button>
 
           {/* Gali Desawar Button */}
-          <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded"  onClick={() => { navigate("/starline" , {state:{galiDesawar:true}}) }}>
+          <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded" onClick={() => { navigate("/starline", { state: { galiDesawar: true } }) }}>
             <FaStreetView className="mr-2" />
             Gali Desawar
           </button>
@@ -143,8 +143,15 @@ const Home: React.FC = () => {
                           {
                             game.play ? (
                               <div className="flex btn-card ">
-                                <Link className="rounded-5" to="/madhurnight" > Play Now
-                                </Link>
+                                {/* <Link className="rounded-5" to="/madhurnight" > Play Now
+                                </Link> */}
+                                <button onClick={() => {
+                                  navigate('/madhurnight', {
+                                    state: {
+                                      open: game.open
+                                    }
+                                  });
+                                }}>Play Now</button>
                               </div>
                             ) : (
                               <div className="flex">
@@ -175,7 +182,7 @@ const Home: React.FC = () => {
             }
 
 
-           
+
           </div>
         </div>
       </div>
