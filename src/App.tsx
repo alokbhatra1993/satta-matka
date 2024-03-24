@@ -103,8 +103,6 @@ function App() {
             <Route path="/ChangePassword" element={<ChangePassword />} />
           </Route>
 
-
-
           <Route element={<DoublePanna />}>
             <Route path="/DoublePanna" element={<DoublePanna />} />
           </Route>

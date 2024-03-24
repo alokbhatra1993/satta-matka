@@ -68,7 +68,7 @@ const Home: React.FC = () => {
           </button>
 
           {/* Add Money Button */}
-          <button className="custom-blue text-white font-medium py-2 px-2 rounded" onClick={() => { navigate("/withdraw") }}>
+          <button className="custom-blue text-white font-medium py-2 px-2 rounded" onClick={() => { navigate("/funds") }}>
             <FaMoneyBillWave className="mr-2" />
             Add Money
           </button>

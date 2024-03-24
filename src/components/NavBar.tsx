@@ -20,51 +20,56 @@ const Navbar: React.FC = () => {
 
 
   const items = [
-    { text: "test", icon: <FaWallet size={30} /> },
-    { text: "Home", icon: <FaHome /> },
-    { text: "See Full Profile", icon: <FaUser /> },
-    { text: "Add Funds", icon: <FaMoneyBill /> },
-    { text: "Withdraw", icon: <FaMoneyCheck /> },
-    { text: "Wallet Statement", icon: <FaWallet /> },
-    { text: "Win History", icon: <FaTrophy /> },
-    { text: "Bid History", icon: <FaHistory /> },
-    { text: "Game Rates", icon: <FaChartBar /> },
-    { text: "How to Play", icon: <FaQuestionCircle /> },
-    { text: "Contact Us", icon: <FaPhone /> },
-    { text: "Share with Friends", icon: <FaShareAlt /> },
-    { text: "Rate App", icon: <FaStar /> },
-    { text: "Change Password", icon: <FaLock /> },
+    // { text: "test", icon: <FaWallet size={30} /> },
+    { path: '/', text: "Home", icon: <FaHome /> },
+    { path: '/editprofile', text: "See Full Profile", icon: <FaUser /> },
+    { path: '/funds', text: "Add Funds", icon: <FaMoneyBill /> },
+    { path: '/withdraw', text: "Withdraw", icon: <FaMoneyCheck /> },
+    { path: '/wallet', text: "Wallet Statement", icon: <FaWallet /> },
+    { path: '/winhistory', text: "Win History", icon: <FaTrophy /> },
+    { path: '/bidhistory', text: "Bid History", icon: <FaHistory /> },
+    { path: '/gamerates', text: "Game Rates", icon: <FaChartBar /> },
+    { path: '/help', text: "How to Play", icon: <FaQuestionCircle /> },
+    { path: '/contactus', text: "Contact Us", icon: <FaPhone /> },
+    { path: '/share', text: "Share with Friends", icon: <FaShareAlt /> },
+    { path: '/rateapp', text: "Rate App", icon: <FaStar /> },
+    { path: '/ChangePassword', text: "Change Password", icon: <FaLock /> },
+    { path: '/logout', text: "Logout", icon: <FaLock /> },
   ];
 
 
   const handleItemClick = (item: string) => {
     // console.log(Clicked on ${item});
-    if (item === "Logout") {
-      navigate("/login")
+    if (item === "/logout") {
+      localStorage.removeItem("token")
+      navigate("login")
+    }
+    else{
+      navigate(item)
     }
   };
 
   return (
     <div className="navbar-main p-3 bg-blue-800">
-    
-      
-          <div className="container mx-auto flex items-center justify-between">
-            <div className="text-white text-sm font-medium flex items-center">
-              <FaWallet size={30} /> 1000
-            </div>
 
-            <div className="text-white text-md font-medium overflow-hidden">
-              <div className="marquee font-bold">Welcome to Kalyan Satta Matka</div>
-            </div>
 
-            <div onClick={toggleSidebar} className="lg:flex items-center">
-              <span className="text-white pr-2 flex items-center justify-between">
-                <FaBars />
-              </span>
-            </div>
-          </div>
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="text-white text-sm font-medium flex items-center">
+          <FaWallet size={30} /> 1000
+        </div>
 
-  
+        <div className="text-white text-md font-medium overflow-hidden">
+          <div className="marquee font-bold">Welcome to Kalyan Satta Matka</div>
+        </div>
+
+        <div onClick={toggleSidebar} className="lg:flex items-center">
+          <span className="text-white pr-2 flex items-center justify-between">
+            <FaBars />
+          </span>
+        </div>
+      </div>
+
+
 
       <div className="app-container overflow-7">
         {/* Your existing app content */}
@@ -75,7 +80,7 @@ const Navbar: React.FC = () => {
                 <ListItem
                   button
                   key={index}
-                  onClick={() => handleItemClick(item.text)}
+                  onClick={() => handleItemClick(item.path)}
                 >
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />

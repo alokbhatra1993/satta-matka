@@ -3,6 +3,31 @@ import { FaArrowLeft, FaUniversity, FaPhoneAlt, FaGooglePay, FaPaypal } from "re
 import { NavBar2 } from "./NavBar2";
 
 const Withdraw = () => {
+  const token =  localStorage.getItem("token") || ''
+
+  const createPayment=async()=>{
+    try {
+      const response = await fetch("https://smapidev.co.in/api/Api/withdraw", {
+        method: "POST",
+        // body: formData,
+        headers: {
+          token,
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cookie': 'ci_session=0b0000be09ab15b1746f67a94c05d0d6761be9f3'
+        },
+      });
+      response.json().then((data: any) => {
+        alert(data.message)
+        // navigate("/login")
+      }).catch((error: any) => {
+        console.log({ error });
+        alert(error)
+      })
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <div className="px-15">
       <NavBar2 isWithdraw={true} />
