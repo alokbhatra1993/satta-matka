@@ -45,6 +45,10 @@ body {
 .text-custom{
   color: #101A4F;
 }
+button.add-payment-method {
+  background: #6200ED;
+  /* display: flex; */
+}
 
 :root {
   --custom-blue: #101A4F;

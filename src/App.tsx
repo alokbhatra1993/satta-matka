@@ -19,6 +19,11 @@ import SecurityPin from "./components/SecurityPin";
 import { MadhurNight } from "./components/MadhurNight"
 import GameTime from "./components/GameTime";
 import EditProfile from "./components/EditProfile";
+import Withdraw from "./components/Withdraw";
+import { Verify } from "crypto";
+import VerifyOtp from "./components/VerifyOtp";
+import ChangePassword from "./components/ChangePassword";
+import DoublePanna from "./components/DoublePanna";
 
 function App() {
   const token = localStorage.getItem("token")
@@ -85,6 +90,26 @@ function App() {
           </Route>
 
 
+          <Route element={<Withdraw />}>
+            <Route path="/withdraw" element={<Withdraw />} />
+          </Route>
+
+
+          <Route element={<VerifyOtp />}>
+            <Route path="/VerifyOtp" element={<VerifyOtp />} />
+          </Route>
+
+          <Route element={<ChangePassword />}>
+            <Route path="/ChangePassword" element={<ChangePassword />} />
+          </Route>
+
+
+
+          <Route element={<DoublePanna />}>
+            <Route path="/DoublePanna" element={<DoublePanna />} />
+          </Route>
+
+        
         </Routes>
       </Router>
     </div>

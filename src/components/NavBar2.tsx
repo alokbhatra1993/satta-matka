@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaWallet } from "react-icons/fa";
 
 interface NavBar2Props {
   isFund?: boolean;
@@ -10,6 +10,9 @@ interface NavBar2Props {
   isMadhurNight?:boolean;
   isGameTime?:boolean;
   isEditProfile?:boolean;
+  isWithdraw?:boolean;
+  isChangePassword?:boolean;
+  isDoublePanna?:boolean;
 }
 
 export const NavBar2: React.FC<NavBar2Props> = ({
@@ -20,7 +23,10 @@ export const NavBar2: React.FC<NavBar2Props> = ({
   isHelp,
   isMadhurNight,
   isGameTime,
-  isEditProfile
+  isEditProfile,
+  isWithdraw,
+  isChangePassword,
+  isDoublePanna
   
 }) => {
   return (
@@ -81,6 +87,31 @@ export const NavBar2: React.FC<NavBar2Props> = ({
         <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft />
           <button className="ml-3 flex items-center font-bold">Edit Profile</button>
+        </div>
+      ) : null}
+
+
+{isWithdraw   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold">Withdraw</button>
+         <button className="text-right w-100 flex justify-end align-center items-center"> <FaWallet size={30} /> 1000</button>
+        </div>
+      ) : null}
+
+
+{isChangePassword   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold">Change Password</button>
+        </div>
+      ) : null}
+
+
+{isDoublePanna   ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft />
+          <button className="ml-3 flex items-center font-bold">Double Panna</button>
         </div>
       ) : null}
 

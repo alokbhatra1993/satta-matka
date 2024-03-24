@@ -1,140 +1,117 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEdit } from "react-icons/fa";
-import singleDigit from "../images/single-digit (1).svg"; 
+import { useForm } from "react-hook-form";
+import userCircle from "../images/user-circle 1.png";
 import { NavBar2 } from "./NavBar2";
+
+interface ProfileFormData {
+  name: string;
+  email: string;
+  mobile: string;
+}
 
 interface NavBar2Props {
   isEditProfile?: boolean;
 }
 
 export const EditProfile: React.FC<NavBar2Props> = ({ isEditProfile }) => {
-  const [profileData, setProfileData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-  });
+  const { register, handleSubmit, formState: { errors } } = useForm<ProfileFormData>();
+  const [profileImage, setProfileImage] = useState(userCircle);
 
-  const [validationErrors, setValidationErrors] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setProfileData({ ...profileData, [name]: value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      try {
-        const response = await fetch("your-api-url", {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(profileData),
-        });
-        if (response.ok) {
-          // Handle success
-          console.log("Profile updated successfully");
-        } else {
-          // Handle error
-          console.error("Failed to update profile");
-        }
-      } catch (error) {
-        console.error("Error:", error);
+  const onSubmit = async (data: ProfileFormData) => {
+    try {
+      const response = await fetch("your-api-url", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("Profile updated successfully");
+      } else {
+        console.error("Failed to update profile");
       }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
-  const validateForm = () => {
-    let isValid = true;
-    const errors = {
-      name: "",
-      email: "",
-      mobile: "",
-    };
-
-    if (!profileData.name) {
-      errors.name = "Name is required";
-      isValid = false;
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === "string") {
+          setProfileImage(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
     }
-
-    if (!profileData.email) {
-      errors.email = "Email is required";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(profileData.email)) {
-      errors.email = "Email is invalid";
-      isValid = false;
-    }
-
-    if (!profileData.mobile) {
-      errors.mobile = "Mobile is required";
-      isValid = false;
-    } else if (!/^\d{10}$/.test(profileData.mobile)) {
-      errors.mobile = "Mobile is invalid";
-      isValid = false;
-    }
-
-    setValidationErrors(errors);
-    return isValid;
   };
 
   return (
     <div>
       <NavBar2 isEditProfile={true} />
-      <div className="d-flex justify-content-center mt-6">
-        <div className="position-relative flex">
-          <img src={singleDigit} alt="Profile Image" className="w-24 h-24 rounded-circle mb-4" />
-          <label htmlFor="edit-profile" className="edit-profile-icon">
-            <FaEdit />
-            <input type="file" id="edit-profile" className="d-none" />
-          </label>
-        </div>
+      <div className="d-flex justify-content-center mt-6 position-relative">
+        <img src={profileImage} alt="Profile Image" className="w-24 h-24 rounded-circle mb-4" />
+        <label htmlFor="edit-profile" className="edit-profile-icon">
+          <FaEdit />
+          <input
+            type="file"
+            id="edit-profile"
+            className="d-none"
+            onChange={handleImageChange}
+          />
+        </label>
       </div>
-      <form onSubmit={handleSubmit} className="w-100 text-left container">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-100 text-left container">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <input
             type="text"
             id="name"
-            name="name"
+            {...register("name", { required: "Name is required" })}
             placeholder="Name"
-            value={profileData.name}
-            onChange={handleInputChange}
-            className={`form-control ${validationErrors.name && "is-invalid"}`}
+            className={`form-control ${errors.name && "is-invalid"}`}
           />
-          <div className="invalid-feedback">{validationErrors.name}</div>
+          <div className="invalid-feedback">{errors.name?.message}</div>
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email</label>
           <input
             type="email"
             id="email"
-            name="email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Invalid email address",
+              },
+            })}
             placeholder="Email"
-            value={profileData.email}
-            onChange={handleInputChange}
-            className={`form-control ${validationErrors.email && "is-invalid"}`}
+            className={`form-control ${errors.email && "is-invalid"}`}
           />
-          <div className="invalid-feedback">{validationErrors.email}</div>
+          <div className="invalid-feedback">{errors.email?.message}</div>
         </div>
         <div className="mb-3">
           <label htmlFor="mobile" className="form-label">Mobile</label>
           <input
             type="text"
             id="mobile"
-            name="mobile"
+            {...register("mobile", {
+              required: "Mobile is required",
+              pattern: {
+                value: /^\d{10}$/,
+                message: "Invalid mobile number",
+              },
+            })}
             placeholder="Mobile"
-            value={profileData.mobile}
-            onChange={handleInputChange}
-            className={`form-control ${validationErrors.mobile && "is-invalid"}`}
+            className={`form-control ${errors.mobile && "is-invalid"}`}
           />
-          <div className="invalid-feedback">{validationErrors.mobile}</div>
+          <div className="invalid-feedback">{errors.mobile?.message}</div>
         </div>
-       
+        <button type="submit" className="btn btn-primary">Save</button>
       </form>
     </div>
   );

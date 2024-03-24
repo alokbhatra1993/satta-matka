@@ -9,23 +9,8 @@ import fullSangam from "../images/full-sangam.svg"; // Import the image
 import { FaArrowLeft } from "react-icons/fa";
 import { NavBar2 } from "./NavBar2";
 
-interface NavBar2Props {
-  isFund?: boolean;
-  isBidHistory?: boolean;
-  isWinHistory?: boolean;
-  isHelp?: boolean;
-  isMadhurNight?: boolean;
-  isGameTime?:boolean;
-}
 
-export const GameTime: React.FC<NavBar2Props> = ({
-  isFund,
-  isBidHistory,
-  isWinHistory,
-  isHelp,
-  isMadhurNight,
-  isGameTime
-}) => {
+export const GameTime = () => {
   return (
     <div className="container px-15">
       <NavBar2 isGameTime={true} />
