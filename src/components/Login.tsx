@@ -29,8 +29,9 @@ const Login: React.FC = () => {
         body: formData,
       });
       response.json().then((data: any) => {
-        localStorage.setItem("token", data.data.token)
+        localStorage.setItem("token", data?.data?.token)
         alert(data.message);
+        if(data?.data?.token)
         navigate("/security_pin")
       }).catch((error: any) => {
         alert(error);
