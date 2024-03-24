@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import logo from "../images/logo512.png";
+import { useNavigate } from 'react-router-dom';
 
 const SecurityPin = () => {
+  const navigate = useNavigate()
   const [pin, setPin] = useState(['', '', '', '']);
   const token = localStorage.getItem("token") || '';
 
@@ -29,15 +31,12 @@ const SecurityPin = () => {
         headers: {
           'token': token,
           'Content-Type': 'application/json',
-          // 'Cookie': 'ci_session=d2a8bfc834befa449f25ec1a4d1e4de08c515354'
         },
         body: formData,
       });
       response.json().then((data: any) => {
-        console.log("data===>", { data });
-
-        // alert(data.message);
-        // navigate("/security_pin")
+        alert(data.message);
+        navigate("/")
       }).catch((error: any) => {
         console.log("err", error);
 
