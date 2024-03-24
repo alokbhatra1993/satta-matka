@@ -1,46 +1,94 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaMoneyBillWave } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavBar2 } from "./NavBar2";
 
 const StarLine: React.FC = () => {
-  const [formData, setFormData] = useState({
-    mobile: "",
-    password: "",
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  const location = useLocation();
 
-  const handleSubmit = async (e: React.FormEvent) => {};
+  console.log({ location });
+
+  const [mainGameList, setMainGameList] = useState([]);
+  const [startLineRates, setStarLineRates] = useState([]);
+
+  const token = localStorage.getItem("token") || '';
+
+  useEffect(() => {
+    gameList()
+  }, [])
+
+
+  const gameList = async () => {
+    try {
+
+      let url = "https://smapidev.co.in/api/Api/gali_disawar_game"
+      if (location?.state?.startLine) {
+        url = "https://smapidev.co.in/api/Api/starline_game"
+      }
+
+      const response = await fetch(url,
+        {
+          method: "POST",
+          headers: {
+            token
+
+          },
+        });
+
+      response.json().then((result: any) => {
+        // console.log(result);
+        if (result.code == 100) {
+          setMainGameList(location?.state?.startLine?result?.data?.starline_game:result?.data?.gali_disawar_game);
+          setStarLineRates(location?.state?.startLine?result?.data?.starline_rates:result?.data?.gali_disawar_rates);
+        }
+
+      }).catch((error: any) => {
+        alert(error)
+      })
+
+    } catch (error) {
+      alert("ERROR IN GAME LIST" + error)
+    }
+  }
+
+  console.log({ startLineRates });
+
 
   return (
     <>
-          <NavBar2 isStarLine={true} />
+      <NavBar2 isStarLine={location?.state?.startLine?true:false}  isGaliDeswar={!location?.state?.startLine?true:false} />
       <div className="container mx-auto p-4 max-w-md rounded-sm shadow-md login-primary text-white mt-4 rounded">
 
         <h1 className="text-lg font-bold">Star Line Games</h1>
-        <div className="flex justify-content-between">
-          <p>Left Digit</p>
-          <p>10-90</p>
-        </div>
-        <div className="flex justify-content-between mt-2">
-          <p>Right Digit</p>
-          <p>10-90</p>
-        </div>
-        <div className="flex justify-content-between mt-2">
-          <p>Jodi Digit</p>
-          <p>10-900</p>
-        </div>
+        {
+          startLineRates.length > 0 ? (
+            <>
+              {
+                startLineRates.map((rate: any) => (
+                  <div className="flex justify-content-between">
+                    <p>{rate.name}</p>
+                    <p>{rate.cost_amount} - {rate.earning_amount}</p>
+                  </div>
+                ))
+              }
+            </>
+          ) : (
+            <>No data</>
+          )
+        }
+
+
       </div>
       <div className="mt-6">
         <Link
           className="mr-2 px-4 py-2 login-primary text-white rounded"
-          to="/bid-history"
+          to="/bidhistory"
         >
           BID HISTORY
         </Link>
         <Link
           className="mr-2 px-4 py-2 login-primary text-white rounded"
-          to="/win-history"
+          to="/winhistory"
         >
           WIN HISTORY
         </Link>
@@ -93,13 +141,13 @@ const StarLine: React.FC = () => {
                   <a className="btn-card rounded-5" href="#">
                     Play Now
                   </a>
-               
+
                   <span className="text-green-500 flex items-center ml-3">
                     Running
                   </span>
                 </div>
               </div>
-            
+
               <p className="mt-1 text-black border-top-0 justify-center !important items-center">
                 06:30 PM
               </p>
@@ -122,13 +170,13 @@ const StarLine: React.FC = () => {
                   <a className="btn-card rounded-5" href="#">
                     Play Now
                   </a>
-               
+
                   <span className="text-green-500 flex items-center ml-3">
                     Running
                   </span>
                 </div>
               </div>
-            
+
               <p className="mt-1 text-black border-top-0 justify-center !important items-center">
                 06:30 PM
               </p>
@@ -150,28 +198,28 @@ const StarLine: React.FC = () => {
                   <a className="btn-card rounded-5" href="#">
                     Play Now
                   </a>
-               
+
                   <span className="text-green-500 flex items-center ml-3">
                     Running
                   </span>
                 </div>
               </div>
-            
+
               <p className="mt-1 text-black border-top-0 justify-center !important items-center">
                 11:30 PM
               </p>
             </div>
 
 
-         
-        
+
+
           </div>
         </div>
-       
+
       </div>
       <a className="mr-2 px-4 py-2 mt-3 flex justify-center login-primary text-white rounded w-100" href="#">
-                    Chart
-                  </a>
+        Chart
+      </a>
     </>
   );
 };

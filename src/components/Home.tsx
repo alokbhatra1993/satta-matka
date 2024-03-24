@@ -89,7 +89,7 @@ const Home: React.FC = () => {
         {/* Secondary Buttons */}
         <div className="flex flex-row md:flex-row gap-3 md:space-x-4 mt-4">
           {/* Play Star Line Button */}
-          <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded" onClick={() => { navigate("/starline") }}>
+          <button className="bg-white hover:bg-yellow-600 text-black font-medium py-2 px-4 rounded" onClick={() => { navigate("/starline" , {state:{startLine:true}}) }}>
             <FaPlayCircle className="mr-2" />
             Play Star Line
           </button>
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
           </button>
 
           {/* Gali Desawar Button */}
-          <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded">
+          <button className="bg-white hover:bg-red-600 text-black font-medium py-2 px-4 rounded"  onClick={() => { navigate("/starline" , {state:{galiDesawar:true}}) }}>
             <FaStreetView className="mr-2" />
             Gali Desawar
           </button>
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
                             >
                               {/* 569-900-668 */}
                               {
-                                game.sortcol?.toString().replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
+                                game.result
                               }
                             </a>
                           </div>
@@ -175,135 +175,7 @@ const Home: React.FC = () => {
             }
 
 
-            {/* <div className="card-new p-2">
-              <div className="uppercase heading-block tracking-wide text-xl font-bold">
-                MADHUR DAY
-              </div>
-              <div className="flex align-items-center justify-around">
-                <a
-                  href="#"
-                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                >
-                  <FaMoneyBillWave className="mr-2" />
-                </a>
-                <div className="flex">
-                  {" "}
-                  <a
-                    href="#"
-                    className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                  >
-                    569-900-668
-                  </a>
-                </div>
-                <div className="flex">
-                  {" "}
-                  <a className="btn-card-closed rounded-5" href="#">
-                    Closed
-                  </a>
-                </div>
-              </div>
-              <p className="mt-2 text-black">
-                Open : 09:30 <b className="text-red-600">Closed</b>{" "}
-                <span>Closes:10:30 AM</span>
-              </p>
-            </div>
-            <div className="card-new p-2">
-              <div className="uppercase heading-block tracking-wide text-xl font-bold">
-                MILAN DAY
-              </div>
-              <div className="flex align-items-center justify-around">
-                <a
-                  href="#"
-                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                >
-                  <FaMoneyBillWave className="mr-2" />
-                </a>
-                <div className="flex">
-                  {" "}
-                  <a
-                    href="#"
-                    className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                  >
-                    569-900-***
-                  </a>
-                </div>
-                <div className="flex">
-                  {" "}
-                  <a className="btn-card rounded-5" href="#">
-                    Play Now
-                  </a>
-                </div>
-              </div>
-              <p className="mt-2 text-black">
-                Open : 09:30 <b className="text-green-600">Running</b>{" "}
-                <span>Closes:10:30 AM</span>
-              </p>
-            </div>
-
-            <div className="card-new p-2">
-              <div className="uppercase heading-block tracking-wide text-xl font-bold">
-                MADHUR DAY
-              </div>
-              <div className="flex align-items-center justify-around">
-                <a
-                  href="#"
-                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                >
-                  <FaMoneyBillWave className="mr-2" />
-                </a>
-                <div className="flex">
-                  {" "}
-                  <a
-                    href="#"
-                    className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                  >
-                    569-900-668
-                  </a>
-                </div>
-                <div className="flex">
-                  {" "}
-                  <a className="btn-card-closed rounded-5" href="#">
-                    Closed
-                  </a>
-                </div>
-              </div>
-              <p className="mt-2 text-black">
-                Open : 09:30 <b className="text-red-600">Closed</b>{" "}
-                <span>Closes:10:30 AM</span>
-              </p>
-            </div>
-            <div className="card-new p-2">
-              <div className="uppercase heading-block tracking-wide text-xl font-bold">
-                SUPREME DAY
-              </div>
-              <div className="flex align-items-center justify-around">
-                <a
-                  href="#"
-                  className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                >
-                  <FaMoneyBillWave className="mr-2" />
-                </a>
-                <div className="flex">
-                  {" "}
-                  <a
-                    href="#"
-                    className="block mt-1 text-lg leading-tight font-medium text-gray-500 hover:underline"
-                  >
-                    569-900-668
-                  </a>
-                </div>
-                <div className="flex">
-                  {" "}
-                  <a className="btn-card rounded-5" href="#">
-                    Play Now
-                  </a>
-                </div>
-              </div>
-              <p className="mt-2 text-black">
-                Open : 09:30 <b className="text-green-600">Running</b>{" "}
-                <span>Closes:10:30 AM</span>
-              </p>
-            </div> */}
+           
           </div>
         </div>
       </div>

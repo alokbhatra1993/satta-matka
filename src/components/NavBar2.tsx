@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 interface NavBar2Props {
   isFund?: boolean;
   isStarLine?: boolean;
+  isGaliDeswar?:boolean;
   isBidHistory?: boolean;
   isWinHistory?: boolean;
   isHelp?: boolean;
@@ -18,6 +19,7 @@ interface NavBar2Props {
 
 export const NavBar2: React.FC<NavBar2Props> = ({
   isFund,
+  isGaliDeswar,
   isStarLine,
   isBidHistory,
   isWinHistory,
@@ -55,10 +57,10 @@ export const NavBar2: React.FC<NavBar2Props> = ({
         </div>
       ) : null}
 
-      {isStarLine ? (
+      {isStarLine || isGaliDeswar ? (
         <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft onClick={() => (navigate("/"))} cursor="pointer" />
-          <button className="ml-3 flex items-center font-bold"> Gali Desawar</button>
+          <button className="ml-3 flex items-center font-bold"> {isGaliDeswar?"Gali Desawar":"Star Line"}</button>
         </div>
       ) : null}
 
