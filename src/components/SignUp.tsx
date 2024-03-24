@@ -15,9 +15,6 @@ const SignupForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // const formData=data
-    console.log({ data });
-
     try {
       const formData = new URLSearchParams();
       formData.append("full_name", data.full_name);

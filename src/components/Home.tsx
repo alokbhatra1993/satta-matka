@@ -10,7 +10,7 @@ import {
   FaStreetView,
   FaWhatsapp,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         });
 
       response.json().then((result: any) => {
-        console.log(result);
+        // console.log(result);
         if (result.code == 100) {
           setMainGameList(result?.data)
         }
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
     }
   }
 
-  console.log({ mainGameList });
+  // console.log({ mainGameList });
 
 
   return (
@@ -143,9 +143,8 @@ const Home: React.FC = () => {
                           {
                             game.play ? (
                               <div className="flex">
-                                <a className="btn-card rounded-5" href="#">
+                                <Link className="btn-card rounded-5"  to="/madhurnight" />
                                   Play Now
-                                </a>
                               </div>
                             ) : (
                               <div className="flex">
