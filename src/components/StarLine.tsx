@@ -6,8 +6,6 @@ import { NavBar2 } from "./NavBar2";
 const StarLine: React.FC = () => {
   const location = useLocation();
 
-  console.log({ location });
-
   const [mainGameList, setMainGameList] = useState([]);
   const [startLineRates, setStarLineRates] = useState([]);
 
@@ -36,7 +34,6 @@ const StarLine: React.FC = () => {
         });
 
       response.json().then((result: any) => {
-        // console.log(result);
         if (result.code == 100) {
           setMainGameList(location?.state?.startLine?result?.data?.starline_game:result?.data?.gali_disawar_game);
           setStarLineRates(location?.state?.startLine?result?.data?.starline_rates:result?.data?.gali_disawar_rates);
@@ -51,8 +48,6 @@ const StarLine: React.FC = () => {
     }
   }
 
-  console.log({ startLineRates });
-
 
   return (
     <>
@@ -66,7 +61,7 @@ const StarLine: React.FC = () => {
               {
                 startLineRates.map((rate: any) => (
                   <div className="flex justify-content-between">
-                    <p>{rate.name}</p>
+                    <p>{rate.name.split('_').map((word:any) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
                     <p>{rate.cost_amount} - {rate.earning_amount}</p>
                   </div>
                 ))

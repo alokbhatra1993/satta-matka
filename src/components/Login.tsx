@@ -2,7 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import logo from "../images/logo512.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 interface FormData {
   mobile: string;
@@ -30,11 +31,13 @@ const Login: React.FC = () => {
       });
       response.json().then((data: any) => {
         localStorage.setItem("token", data?.data?.token)
-        alert(data.message);
-        if(data?.data?.token)
-        navigate("/security_pin")
+        if (data?.data?.token)
+          navigate("/security_pin")
+        else
+          toast.error(data?.message)
       }).catch((error: any) => {
-        alert(error);
+        // alert(error);
+        toast.error("An error occured")
       })
 
     } catch (error) {
@@ -52,6 +55,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4 max-w-md rounded-5 shadow-md login-primary text-white">
+      <ToastContainer />
       <img src={logo} alt="Logo" className="flex mx-auto" />
       <h2 className="text-2xl font-bold mb-2 mt-4">Welcome Back!</h2>
       <form className="text-left" onSubmit={handleSubmit(onSubmit)}>
@@ -87,7 +91,7 @@ const Login: React.FC = () => {
           </button>
           {errors.password && <span className="text-red-500">Password is required</span>}
         </div>
-        <a href="#" className="mt-4 mb-2 text-white-700 flex justify-end text-sm">Forgot Password.</a>
+        <Link to="/forgotpassword" className="mt-4 mb-2 text-white-700 flex justify-end text-sm">Forgot Password.</Link>
         <button
           type="submit"
           className="w-full mt-4 bg-blue-800 text-white py-2 mb-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"

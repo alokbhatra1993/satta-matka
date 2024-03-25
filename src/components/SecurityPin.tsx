@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import logo from "../images/logo512.png";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SecurityPin = () => {
   const navigate = useNavigate()
@@ -22,25 +24,39 @@ const SecurityPin = () => {
 
   const callApi = async (myPin: any) => {
     const formData = new URLSearchParams();
-    console.log({ myPin, join: myPin.join("") });
-
     formData.append("pin", myPin.join(""));
     try {
       const response = await fetch("https://smapidev.co.in/api/Api/login_pin", {
         method: "POST",
         headers: {
           'token': token,
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cookie': 'ci_session=0b0000be09ab15b1746f67a94c05d0d6761be9f3'
         },
         body: formData,
       });
       response.json().then((data: any) => {
-        alert(data.message);
-        navigate("/")
+        // alert(data.message);
+        // navigate("/")
+        if (data?.code === "505") {
+          toast.error(data.message, {
+            position: 'top-right'
+          });
+        }
+        else {
+          toast.success(data.message, {
+            position: 'top-right'
+          });
+          navigate("/")
+        }
+
       }).catch((error: any) => {
         console.log("err", error);
 
-        alert(error);
+        // alert(error);
+        toast.error('An error occured!', {
+          position: 'top-right'
+        });
       })
 
     } catch (error) {
@@ -52,6 +68,8 @@ const SecurityPin = () => {
 
   return (
     <div className='container mx-auto security-pin'>
+      <ToastContainer />
+
       <img src={logo} alt="Logo" className="flex mx-auto" />
       <h1 className='text-white'>Please Enter your security pin</h1>
 
@@ -63,8 +81,9 @@ const SecurityPin = () => {
             type="text"
             value={value}
             // maxLength="1"
+            disabled
             onChange={(e) => handleInput(index, e.target.value)}
-            className="text-center bg-white text-black font-bold py-8 px-8 rounded"
+            className=" bg-white "
             style={{ width: "20px", height: "20px" }}
           />
         ))}
@@ -96,8 +115,10 @@ const SecurityPin = () => {
           onClick={() => {
             const newPin = [...pin];
             const emptyIndex = newPin.findIndex(val => val === '');
+            console.log({ emptyIndex });
+
             if (emptyIndex !== -1) {
-              newPin[emptyIndex] = 'DEL';
+              newPin[emptyIndex - 1] = '';
               setPin(newPin);
             }
           }}
