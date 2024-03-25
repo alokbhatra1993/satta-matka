@@ -47,7 +47,10 @@ const SecurityPin = () => {
           toast.success(data.message, {
             position: 'top-right'
           });
-          // navigate("/")
+          if (data?.data?.token) {
+            localStorage.setItem("token", data?.data?.token)
+            navigate("/")
+          }
         }
 
       }).catch((error: any) => {
