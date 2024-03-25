@@ -47,7 +47,7 @@ const SecurityPin = () => {
           toast.success(data.message, {
             position: 'top-right'
           });
-          navigate("/")
+          // navigate("/")
         }
 
       }).catch((error: any) => {
