@@ -29,7 +29,9 @@ import ContactUs from "./components/ContactUs";
 import Wallet from "./components/Wallet";
 
 function App() {
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
+  console.log({token});
+  
   return (
     <div className="App">
       <Router>
@@ -46,8 +48,8 @@ function App() {
           </Route>
 
           <Route element={<WithNavbar />}>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route
+            <Route path="/" element={<Home />} />
+            {/* <Route
               path="/"
               element={
                 token ? (
@@ -56,7 +58,7 @@ function App() {
                   <Navigate to="/login" />
                 )
               }
-            />
+            /> */}
           </Route>
 
           <Route element={<WithoutNavbar />}>
