@@ -11,10 +11,10 @@ interface ChangePasswordFormData {
 }
 
 interface NavBar2Props {
-  isDoublePanna?: boolean;
+  isGameRates?: boolean;
 }
 
-const DoublePanna: React.FC<NavBar2Props> = ({ isDoublePanna }) => {
+const DoublePanna: React.FC<NavBar2Props> = ({ isGameRates }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<ChangePasswordFormData>();
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -51,35 +51,58 @@ const DoublePanna: React.FC<NavBar2Props> = ({ isDoublePanna }) => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const handleGameButtonClick = (label: string, value: number) => {
+    // Handle game button click
+    console.log(`${label} - ${value} button clicked`);
+  };
+
   return (
     <div className="bg-gray-100 rounded-lg">
-      <NavBar2 isDoublePanna={true} />
-     <div className="container shadow-md w-100 bg-white p-3 rounded-md text-left"> <div className="flex">
-        <MyDatePicker />
-      </div>
-      <div className="container text-left">
-        <h2 className="choose_session font-bold mb-4">Choose Session</h2>
-        <div className="open flex">
-          <input className="mr-2" type="radio" />Open
-          <input className="ml-4 mr-2" type="radio" />Close
-        </div>
-      </div>
-      <div className="panna-new text-left mt-4">
-        <label htmlFor="">Panna</label>
-        <div className="input-group">
-          <span className="input-group-text"><FaEdit /></span>
-          <input type="text" className="form-control" placeholder="Enter Digit" />
-        </div>
-      </div>
-      <div className="panna-new text-left mt-4">
-        <label htmlFor="">Points</label>
-        <div className="input-group">
-          <span className="input-group-text"><FaRupeeSign /></span>
-          <input type="text" className="form-control" placeholder="Enter Points" />
-        </div>
-      </div>
-      <div className="Proceed mt-6">
-        <button className="btn-proceed bg-blue-800 w-100 text-white py-2 px-4 rounded-lg">Proceed</button>
+      <NavBar2 isGameRates={true} />
+      <div className="container mx-auto gamerates">
+      <div>
+        <button
+          onClick={() => handleGameButtonClick("Jodi Digit", 1000)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Jodi Digit</span>
+          <span>10-1000</span>
+        </button>
+        <button
+          onClick={() => handleGameButtonClick("Single Panna", 1400)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Single Panna</span>
+          <span>10-1400</span>
+        </button>
+        <button
+          onClick={() => handleGameButtonClick("Double Panna", 2400)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Double Panna</span>
+          <span>10-2400</span>
+        </button>
+        <button
+          onClick={() => handleGameButtonClick("Triple Panna", 7000)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Triple Panna</span>
+          <span>10-7000</span>
+        </button>
+        <button
+          onClick={() => handleGameButtonClick("Half Sangam", 10000)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Half Sangam</span>
+          <span>10-10000</span>
+        </button>
+        <button
+          onClick={() => handleGameButtonClick("Full Sangam", 100000)}
+          className="flex justify-around items-center w-full bg-blue-800 text-white p-3 mb-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <span>Full Sangam</span>
+          <span>10-100000</span>
+        </button>
       </div>
     </div>
     </div>

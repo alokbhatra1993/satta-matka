@@ -11,8 +11,24 @@ body {
   padding: 0 !important; /* Use '0' instead of '0px' */
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+z-99{
+  z-index: 999;
+}
+/* .add-points {
+  margin: 85px;
+} */
+.wallet-btn {
+  z-index: 9999;
+  /* bottom: 0; */
+  padding: 10px 30px;
+  margin-top: 85px !important;
+  margin-right: 36px;
+}
 .security-pin {
   background: #101A4F;
+}
+.container.mx-auto.gamerates button {
+  justify-content: space-between;
 }
 .container.primary-text button {
   font-size: 11px;

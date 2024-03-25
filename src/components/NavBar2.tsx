@@ -15,6 +15,9 @@ interface NavBar2Props {
   isWithdraw?: boolean;
   isChangePassword?: boolean;
   isDoublePanna?: boolean;
+  isGameRates?:boolean;
+  isContactUs?:boolean;
+  isWallet?:boolean;
 }
 
 export const NavBar2: React.FC<NavBar2Props> = ({
@@ -29,7 +32,11 @@ export const NavBar2: React.FC<NavBar2Props> = ({
   isEditProfile,
   isWithdraw,
   isChangePassword,
-  isDoublePanna
+  isDoublePanna,
+  isGameRates,
+  isContactUs,
+  isWallet
+
 
 }) => {
   const navigate = useNavigate()
@@ -117,6 +124,31 @@ export const NavBar2: React.FC<NavBar2Props> = ({
         <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
           <FaArrowLeft  onClick={() => (navigate("/"))} cursor="pointer"/>
           <button className="ml-3 flex items-center font-bold">Double Panna</button>
+        </div>
+      ) : null}
+
+
+
+{isGameRates ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft  onClick={() => (navigate("/"))} cursor="pointer"/>
+          <button className="ml-3 flex items-center font-bold">Game Rates</button>
+        </div>
+      ) : null}
+
+
+{isContactUs ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft  onClick={() => (navigate("/"))} cursor="pointer"/>
+          <button className="ml-3 flex items-center font-bold">ContactUs</button>
+        </div>
+      ) : null}
+
+
+{isWallet ? (
+        <div className="navbar-main p-3 mb-6 text-left flex items-center text-white">
+          <FaArrowLeft  onClick={() => (navigate("/"))} cursor="pointer"/>
+          <button className="ml-3 flex items-center font-bold">Wallet</button>
         </div>
       ) : null}
 

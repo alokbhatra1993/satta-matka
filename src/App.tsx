@@ -24,6 +24,9 @@ import { Verify } from "crypto";
 import VerifyOtp from "./components/VerifyOtp";
 import ChangePassword from "./components/ChangePassword";
 import DoublePanna from "./components/DoublePanna";
+import GameRates from "./components/GameRates";
+import ContactUs from "./components/ContactUs";
+import Wallet from "./components/Wallet";
 
 function App() {
   const token = localStorage.getItem("token")
@@ -105,6 +108,19 @@ function App() {
 
           <Route element={<DoublePanna />}>
             <Route path="/DoublePanna" element={<DoublePanna />} />
+          </Route>
+
+          <Route element={<GameRates />}>
+            <Route path="/GameRates" element={<GameRates />} />
+          </Route>
+
+          <Route element={<ContactUs />}>
+            <Route path="/ContactUs" element={<ContactUs />} />
+          </Route>
+
+
+          <Route element={<Wallet />}>
+            <Route path="/Wallet" element={<Wallet />} />
           </Route>
 
         

@@ -23,7 +23,7 @@ export const BidHistory: React.FC = () => {
             <MyDatePicker />
           </div>
 
-        <button className="rounded mt-3 bg-blue-300 submit-request px-5 py-2 text-black">
+        <button className="rounded mt-3 bg-blue-800 submit-request px-5 py-2 text-white">
           SUBMIT REQUEST
         </button>
         </div>

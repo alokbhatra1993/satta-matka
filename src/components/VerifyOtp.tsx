@@ -74,7 +74,7 @@ const VerifyOtp = () => {
         onClick={handleVerifyOtp}
         className="w-full mt-4 bg-blue-800 text-white py-2 mb-2 rounded-5 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
       >
-        Verify OTP
+        Verify
       </button>
 
       {/* Resend OTP link */}
